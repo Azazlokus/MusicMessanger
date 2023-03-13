@@ -85,6 +85,7 @@
     line-height: 23px;
     text-align: center;
     color: #FFFFFF;
+    cursor: pointer;
 }
 .reg__btn{
     width: 171px;
@@ -97,10 +98,16 @@
     text-align: center;
     color: #5C98F1;
     background-color: inherit;
+    cursor: pointer;
+}
+.reg__btn:hover{
+    background-color: #B3CDF8;
+}
+.logIn__btn:hover{
+    border: 3px solid white;
 }
 
-
-.logIn__background{
+.logIn__background{ 
     width: 50%;
     background-image: url("../image/LogIn__bg.png");
     background-size: 100%;
