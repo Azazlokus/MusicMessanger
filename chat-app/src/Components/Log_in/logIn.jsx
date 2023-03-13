@@ -1,5 +1,9 @@
 import React from 'react';
 import '../Log_in/login.css';
+import MyButtonLogin from '../UI/btns/btnLogin';
+import MyButtonRegist from '../UI/btns/btnRegistr';
+import MyInputLogin from '../UI/inputs/inputLogin';
+import MyInputPass from '../UI/inputs/inputPass';
 
 function LogIn() {
     return ( 
@@ -16,17 +20,17 @@ function LogIn() {
                     <ul className="logIn__form">
                         <li className="logIn__form_item item">
                             <span className="logIn__item_title">User name</span>
-                            <input type="text" placeholder="Input user name" className="logIn__item_input"/>    
+                            <MyInputLogin/>    
                         </li>
                         <li className="logIn__form_item item">
                             <span className="logIn__item_title">Password</span>
-                            <input type="text" placeholder="Input password" className="logIn__item_input"/>
+                            <MyInputPass/>
                         </li>
                     </ul>
                     
                     <div className="form__btns">
-                        <button className="logIn__btn">Log In</button>
-                        <button className="reg__btn">Registration</button>
+                        <MyButtonLogin/>
+                        <MyButtonRegist/>
                     </div>
                 </section>
             </div>

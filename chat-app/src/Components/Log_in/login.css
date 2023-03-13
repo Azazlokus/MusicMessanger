@@ -1,9 +1,9 @@
-
 .logIn__container{
     display: flex;
     margin: 0 auto;
     max-width: 1440px;
     justify-content: center;
+    min-height: 100vh;
 }
 .logIn__form{
     width: 50%;
@@ -12,12 +12,13 @@
     align-items: center;
 }
 .logIn__form_container{
-    margin-top: 230px;
+    margin-top: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 66.2%;
-    margin-bottom: 230px;
+    margin-bottom: 150px;
+    
 }
 .logIn__logo{
     align-self: flex-start;
@@ -102,7 +103,6 @@
 .logIn__background{
     width: 50%;
     background-image: url("../image/LogIn__bg.png");
-    background-position: center;
     background-size: 100%;
     background-repeat: no-repeat;
 }
