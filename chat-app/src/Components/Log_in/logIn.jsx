@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../Log_in/login.css';
 import MyButtonLogin from '../UI/btns/btnLogin';
 import MyButtonRegist from '../UI/btns/btnRegistr';
@@ -19,7 +19,7 @@ function LogIn() {
                     
                     <ul className="logIn__form">
                         <li className="logIn__form_item item">
-                            <span className="logIn__item_title">User name</span>
+                            <span className="logIn__item_title">Email</span>
                             <MyInputLogin/>    
                         </li>
                         <li className="logIn__form_item item">
