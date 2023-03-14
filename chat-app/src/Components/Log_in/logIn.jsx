@@ -4,6 +4,7 @@ import MyButtonLogin from '../UI/btns/btnLogin';
 import MyButtonRegist from '../UI/btns/btnRegistr';
 import MyInputLogin from '../UI/inputs/inputLogin';
 import MyInputPass from '../UI/inputs/inputPass';
+import {Link} from 'react-router-dom'
 
 function LogIn() {
     return ( 
@@ -30,7 +31,9 @@ function LogIn() {
                     
                     <div className="form__btns">
                         <MyButtonLogin/>
-                        <MyButtonRegist/>
+                        <Link to="Regist">
+                            <MyButtonRegist/>
+                        </Link>
                     </div>
                 </section>
             </div>
