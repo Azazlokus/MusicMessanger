@@ -2,8 +2,8 @@ import React from 'react';
 import LogIn from './Components/Log_in/logIn';
 import '../src/mian.css';
 import {Route, Routes} from 'react-router-dom';
-import Regist from './Components/Registr/register';
 import PrivateRoute from './Components/Utils/Router/privateRouter';
+import Regist from './Components/Registr/register';
 
 function App() {
   return (
