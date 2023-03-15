@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import '../Log_in/login.css';
+import React from 'react';
+import './login.css';
 import { Link } from 'react-router-dom'
 import Title from '../UI/Title/title';
 import MyInput from '../UI/inputs/myInput';
@@ -18,7 +18,7 @@ function LogIn() {
                     </ul>
 
                     <div className="form__btns">
-                        <Link to="/">
+                        <Link to="/ChatPage">
                             <MyButton className='logIn__btn' text='Log in' />
                         </Link>
                         <Link to="Regist">

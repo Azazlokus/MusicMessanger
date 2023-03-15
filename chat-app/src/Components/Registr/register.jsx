@@ -1,5 +1,5 @@
 import React from 'react';
-import "../Registr/register.css"
+import "./register.css"
 import Title from '../UI/Title/title';
 import { Link } from 'react-router-dom'
 import MyInput from '../UI/inputs/myInput';
@@ -26,7 +26,7 @@ function Regist() {
                         </ul>
 
                         <div className="form__btns">
-                            <Link to ="/">
+                            <Link to ="/ChatPage">
                                 <MyButton className='logIn__btn' text='Registration' />
                             </Link>
                             <Link to="/">
