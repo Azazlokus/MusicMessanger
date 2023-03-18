@@ -1,0 +1,27 @@
+.chat__content{
+    display: flex;
+    flex-direction: column;
+    width: 25.14%;
+    border-right: 1px solid #88ABE3;
+}
+.chat__content_container{
+    margin-top: 32px;
+}
+.ChatCreate{
+    display: flex;
+    align-items: center;
+    column-gap: 60px;
+    font-size: 20px;
+}
+.chat__create_title{
+    text-transform: uppercase;
+}
+.chat__create_icon{
+    color: #5E93E7;
+    width: 48px;
+    height: 48px;
+}
+.chat__create_icon:hover{
+    color: greenyellow;
+    border: 3px dashed greenyellow;
+}

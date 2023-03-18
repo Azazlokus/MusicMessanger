@@ -1,0 +1,8 @@
+.chat__container{
+    margin: 0 auto;
+    max-width: 1440px;
+    display: flex;
+}
+.local__content{
+    width: 74.86%;
+}

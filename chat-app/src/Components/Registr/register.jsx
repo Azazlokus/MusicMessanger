@@ -6,7 +6,6 @@ import MyInput from '../UI/inputs/myInput';
 import MyButton from '../UI/btns/myButton';
 import MySelect from '../UI/selectList/mySelect';
 
-
 function Regist() {
     return (
         <div>
@@ -26,8 +25,8 @@ function Regist() {
                         </ul>
 
                         <div className="form__btns">
-                            <Link to ="/ChatPage">
-                                <MyButton className='logIn__btn' text='Registration' />
+                            <Link to ="/LocalPage">
+                                <MyButton  className='logIn__btn' text='Registration' />
                             </Link>
                             <Link to="/">
                                 <MyButton className='reg__btn' text='Log in' />

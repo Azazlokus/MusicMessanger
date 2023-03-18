@@ -12,7 +12,7 @@ function MyInput(props) {
 
     //Валидация пароля и почты
     function handlerInput(e) {
-        if (e.target.type == 'email') {
+        if (e.target.type === 'email') {
             setLogin(e.target.value)
             const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
             if (!re.test(String(e.target.value).toLowerCase())) {
@@ -21,7 +21,7 @@ function MyInput(props) {
                 setLoginError("")
             }
         }
-        else if (e.target.type == 'password') {
+        else if (e.target.type === 'password') {
             setPass(e.target.value)
             if (e.target.value.length < 6 || e.target.value.length > 12) {
                 setPassError('Incorrect password')
@@ -40,6 +40,8 @@ function MyInput(props) {
 
             case 'password':
                 setPassVoid(true)
+                break;
+            default:
                 break;
         }
     }
