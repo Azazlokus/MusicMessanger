@@ -2,8 +2,10 @@ import React from 'react';
 import ChatList from '../ChatList/chatList';
 import Header from '../Header/header';
 import '../Local_Page/localPage.css'
+import TitleName from '../TitleName/titleName';
+import PostForm from './Posts/postForm';
 
-function LocalPage() {
+function LocalPage(props) {
     return (
         <div>
             <Header/>
@@ -12,7 +14,13 @@ function LocalPage() {
                     <ChatList/>
 
                     <section className="local__content">
-                        dqwdqd
+                        <TitleName name={'Marina Joe'}/>
+
+                        <div className="local__img" ></div>
+
+                        <div className="local__post">
+                            <PostForm/>
+                        </div>
                     </section>
                 </div>
             </section>
