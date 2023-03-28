@@ -1,0 +1,19 @@
+.local__background{
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(0deg, #4E5FF8 27.84%, rgba(140, 250, 250, 0.648816) 56.81%, rgba(255, 255, 255, 0) 100%);
+    border: 1px solid #000000;
+    border-radius: 25px;
+    position: relative;
+}
+.local__background_btn{
+    position: absolute;
+    bottom: 12px;
+    right: 24px;
+    background: rgba(217, 217, 217, 0.45);
+    border: 1px solid #FFFEFE;
+    border-radius: 25px;
+    width: 166px;
+    height: 45px;
+    color: white;
+}

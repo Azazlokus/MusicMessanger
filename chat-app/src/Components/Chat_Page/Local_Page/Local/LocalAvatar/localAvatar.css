@@ -1,0 +1,12 @@
+.local__avatar{
+    width: 152px;
+    height: 152px;
+    border-radius: 100%;
+    position: absolute;
+    top: 134px;
+    left: 65px;
+    background-color: white;
+}
+.local__avatar_img{
+    border-radius: 100%;
+}

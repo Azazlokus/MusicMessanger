@@ -2,8 +2,11 @@ import React from 'react';
 import ChatList from '../ChatList/chatList';
 import Header from '../Header/header';
 import '../Local_Page/localPage.css'
-import TitleName from '../TitleName/titleName';
-import PostForm from './Posts/postForm';
+import LocalAvatar from './Local/LocalAvatar/localAvatar';
+import LocalBackground from './Local/LocalBackground/localBackground';
+import LocalNav from './Local/LocalNav/localNav';
+import LocalPostCreate from './Local/LocalPostCreate/localPostCreate';
+import LocalTitleBar from './Local/LocalTitleBar/localTitleBar';
 
 function LocalPage(props) {
     return (
@@ -14,13 +17,11 @@ function LocalPage(props) {
                     <ChatList/>
 
                     <section className="local__content">
-                        <TitleName name={'Marina Joe'}/>
-
-                        <div className="local__img" ></div>
-
-                        <div className="local__post">
-                            <PostForm/>
-                        </div>
+                        <LocalBackground/>
+                        <LocalAvatar/>
+                        <LocalTitleBar/>
+                        <LocalNav/>
+                        <LocalPostCreate/>
                     </section>
                 </div>
             </section>

@@ -3,6 +3,7 @@
     flex-direction: column;
     width: 25.14%;
     border-right: 1px solid #88ABE3;
+    height: 100vh;
 }
 .chat__content_container{
     margin-top: 32px;
