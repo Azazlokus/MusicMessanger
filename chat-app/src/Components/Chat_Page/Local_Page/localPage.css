@@ -2,14 +2,17 @@
     margin: 0 auto;
     max-width: 1440px;
     display: flex;
+    
 }
 .local__content{
     width: 74.86%;
     display: flex;
     flex-direction: column;
     background-color: #EFF5FF;
+    align-items: center;
     padding: 0 25px;
     padding-top: 10px;
-    position: relative;
-    row-gap: 10px;
+    border-left: 1px solid #88ABE3;
+    row-gap: 30px;
+    overflow: hidden;
 }

@@ -1,27 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ChatList from '../ChatList/chatList';
 import Header from '../Header/header';
 import '../Local_Page/localPage.css'
-import LocalAvatar from './Local/LocalAvatar/localAvatar';
-import LocalBackground from './Local/LocalBackground/localBackground';
-import LocalNav from './Local/LocalNav/localNav';
-import LocalPostCreate from './Local/LocalPostCreate/localPostCreate';
-import LocalTitleBar from './Local/LocalTitleBar/localTitleBar';
+import LocalHeader from './Local/LocalHeader/localHeader';
+import LocalPostForm from './Local/LocalPost/localPostForm';
+import PostList from './Local/LocalPost/localPostList';
 
-function LocalPage(props) {
+
+function LocalPage() {
+    const[postFormVisiable, setPostFormVisiable] = useState(false) //This state for PostFormCreate was visiable
+    const[posts, setPosts] = useState([
+
+    ])
+
+    function addNewPost(newPost){
+        setPosts([...posts, newPost])
+    }
+    function deletePost(post){
+        setPosts(posts.filter(e => post.id !== e.id))
+    }
+
+
     return (
         <div>
-            <Header/>
+            <Header />
             <section>
                 <div className="chat__container">
-                    <ChatList/>
-
+                    <ChatList />
                     <section className="local__content">
-                        <LocalBackground/>
-                        <LocalAvatar/>
-                        <LocalTitleBar/>
-                        <LocalNav/>
-                        <LocalPostCreate/>
+                        <LocalHeader postFormVisiable={postFormVisiable} setPostFormVisiable={setPostFormVisiable} />
+                        {
+                            postFormVisiable && (
+                                <LocalPostForm 
+                                setPostFormVisiable={setPostFormVisiable}
+                                create={addNewPost}
+                                />
+                            )
+                        }
+                        <PostList del={deletePost} posts={posts}/>
                     </section>
                 </div>
             </section>
