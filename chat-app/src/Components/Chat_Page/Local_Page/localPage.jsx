@@ -8,15 +8,18 @@ import PostList from './Local/LocalPost/localPostList';
 
 
 function LocalPage() {
-    const[postFormVisiable, setPostFormVisiable] = useState(false) //This state for PostFormCreate was visiable
-    const[posts, setPosts] = useState([
+    const [postFormVisiable, setPostFormVisiable] = useState(false) //This state for PostFormCreate was visiable
+    const[postViasiable, setPostVisiable] = useState(false)
+    const[aboutVisiable, setAboutVisiable] = useState(false)
+
+    const [posts, setPosts] = useState([
 
     ])
 
-    function addNewPost(newPost){
+    function addNewPost(newPost) {
         setPosts([...posts, newPost])
     }
-    function deletePost(post){
+    function deletePost(post) {
         setPosts(posts.filter(e => post.id !== e.id))
     }
 
@@ -28,16 +31,31 @@ function LocalPage() {
                 <div className="chat__container">
                     <ChatList />
                     <section className="local__content">
-                        <LocalHeader postFormVisiable={postFormVisiable} setPostFormVisiable={setPostFormVisiable} />
+                        <LocalHeader 
+                        postFormVisiable={postFormVisiable} 
+                        setPostFormVisiable={setPostFormVisiable} 
+                        setPostVisiable={setPostVisiable}
+                        postViasiable={postViasiable}
+                        aboutVisiable={aboutVisiable}
+                        setAboutVisiable={setAboutVisiable}
+                        />
+
                         {
                             postFormVisiable && (
-                                <LocalPostForm 
-                                setPostFormVisiable={setPostFormVisiable}
-                                create={addNewPost}
+                                <LocalPostForm
+                                    setPostFormVisiable={setPostFormVisiable}
+                                    create={addNewPost}
                                 />
                             )
                         }
-                        <PostList del={deletePost} posts={posts}/>
+
+                        {
+                            postViasiable &&(
+                                <PostList del={deletePost} posts={posts} />
+                            )
+                        }
+
+                        
                     </section>
                 </div>
             </section>
