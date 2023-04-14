@@ -1,0 +1,135 @@
+.waveform.dragging {
+	position: absolute;
+	box-sizing: border-box;
+	z-index: 999;
+	$w: 150px;
+	$h: 50px;
+	width: $w;
+	height: $h;
+	margin-left: -$w / 2;
+	margin-top: 20px;
+	border: 2px solid rgba( #000, .8 );
+	background: rgba( #000, .5 );
+}
+
+.sample {
+	display: block;
+	position: relative;
+	overflow: hidden;
+	color: #aaa;
+	transition: background .2s;
+	background: rgba( #000, .5 );
+
+	.waveform {
+		display: block;
+		width: 100%;
+		height: 100%;
+		transition: opacity .2s;
+	}
+	.cursor {
+		position: absolute;
+		height: 100%;
+		top: 0;
+		width: 1px;
+		box-shadow: 0 0 5px rgba( #cc3, .5 );
+		background: #cc3;
+		transition: left linear;
+		left: 0;
+	}
+	.to-load {
+		margin-right: .5em;
+		opacity: .5;
+	}
+	span {
+		position: absolute;
+		left: 0;
+		right: 0;
+		font-weight: bold;
+		font-size: 12px;
+		line-height: 1em;
+		top: 50%;
+		margin-top: -.5em;
+		padding: 0 .5em;
+		@include text-stroke( #000 );
+	}
+
+	.filelist & {
+		height: 32px;
+		border-bottom: 1px solid #000;
+
+		.waveform {
+			opacity: .75;
+		}
+		span {
+			transition: padding .2s;
+		}
+		&:hover {
+			color: #fff;
+			background: #000;
+
+			.waveform {
+				opacity: 1;
+			}
+			span {
+				padding-left: 1em;
+			}
+		}
+	}
+
+	.track & {
+		position: absolute;
+		height: 1em;
+
+		.waveformWrapper {
+			position: absolute;
+			width: 100%;
+			top: 0;
+			bottom: 0;
+		}
+	}
+
+	#grid[data-tool="slip"] & {
+		cursor: ew-resize;
+	}
+	#grid[data-sample-size="small"] & {
+		.waveform {
+			opacity: .15;
+		}
+		span {
+			font-size: 11px;
+		}
+	}
+	#grid[data-sample-size="medium"] &,
+	#grid[data-sample-size="big"] & {
+		span {
+			top: 0;
+			padding: 2px;
+			font-size: 11px;
+			margin: 0;
+			background: rgba( #76c4ff, .3);
+		}
+	}
+	#grid[data-sample-size="medium"] & {
+		.waveformWrapper {
+			top: 15px;
+		}
+		span {
+			padding: 2px;
+			font-size: 11px;
+		}
+	}
+	#grid[data-sample-size="big"] & {
+		.waveformWrapper {
+			top: 24px;
+		}
+		span {
+			padding: .5em;
+		}
+	}
+
+	#grid &.selected {
+		span {
+			background: #b51818;
+		}
+	}
+}

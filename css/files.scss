@@ -1,0 +1,35 @@
+#files {
+	box-sizing: border-box;
+	position: absolute;
+	z-index: 2;
+	min-width: 150px;
+	max-width: 400px;
+	left: 0;
+	top: 59px;
+	bottom: 0;
+
+	.filelist {
+		overflow: auto;
+		height: 100%;
+		background: rgba( #000, .5 );
+	}
+
+	.placeholder {
+		display: none;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 25%;
+		text-align: center;
+		color: #555;
+
+		.fa {
+			font-size: 80px;
+			margin-bottom: .2em;
+		}
+	}
+	.filelist:empty + .placeholder {
+		display: block;
+	}
+}
+
