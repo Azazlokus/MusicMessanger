@@ -9,7 +9,7 @@ spring:
       mode: always
       continue-on-error: false
       schema-locations: classpath:schema.sql
-     # data-locations: classpath:demo_data.sql1
+     # data-locations: classpath:demo_data.sql
 
 
 security:
