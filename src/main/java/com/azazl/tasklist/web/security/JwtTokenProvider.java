@@ -108,9 +108,9 @@ public class JwtTokenProvider {
               .getBody()
               .getSubject();
    }
-   public Authentication getAuthentication(String token){
+   public Authentication getAuthentication(String token) {
       String username = getUsername(token);
       UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-      return new UsernamePasswordAuthenticationToken(userDetails,"",userDetails.getAuthorities());
+      return new UsernamePasswordAuthenticationToken(userDetails, "", userDetails.getAuthorities());
    }
 }
