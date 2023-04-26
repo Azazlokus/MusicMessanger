@@ -1,8 +1,9 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
+import '../../Pages/Login page/login.css'
 
 function MyButton(props) {
     return ( 
-        <button className={props.className} type={props.type}>{props.text}</button>
+        <button className={'MyButton'} type={props.type}>{props.text}</button>
     );
 }
 

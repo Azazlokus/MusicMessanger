@@ -47,7 +47,7 @@ function MyInput(props) {
     }
 
     return (
-        <li className="item__input">
+        <div className="item__input">
             <span className="logIn__item_title">{props.title}</span>
 
             {/* Ошибка для почты */}
@@ -55,7 +55,7 @@ function MyInput(props) {
             {/* Ошибка для пароля */}
             {(passVoid && passError) && <div style={{color: 'red'}}>{passError}</div>} 
             <input id={props.id} onChange={handlerInput} type={props.type} onBlur={blurHandler} placeholder={props.text} className="logIn__item_input" />
-        </li>
+        </div>
     );
 }
 

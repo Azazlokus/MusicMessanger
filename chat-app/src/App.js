@@ -2,10 +2,8 @@ import React from 'react';
 import '../src/mian.css';
 import {Route, Routes} from 'react-router-dom';
 import PrivateRoute from './Components/Utils/Router/privateRouter';
-import Regist from './Components/Registr/register';
-import LogIn from './Components/Log_in/logIn';
-import ChatPage from './Components/Chat_Page/chatPage';
-import LocalPage from './Components/Chat_Page/Local_Page/localPage';
+import Login from "./Components/Pages/Login page/login";
+import Registration from "./Components/Pages/Registration page/registration";
 
 
 function App() {
@@ -13,16 +11,16 @@ function App() {
     <div className="App">
       <Routes>
         <Route element={<PrivateRoute/>}>
-          <Route path='/' element={<LogIn/>}/>
+          <Route path='/' element={<Login/>} />
         </Route>
 
-        <Route path='/' element={<LogIn/>}/>
+        <Route path='/' element={<Login/>}/>
         
-        <Route path='Regist' element={<Regist/>}/>
+        <Route path='Regist' element={<Registration/>}/>
 
-        <Route path='ChatPage' element={<ChatPage/>}/>
+        <Route path='ChatPage' element/>
 
-        <Route path='LocalPage' element={<LocalPage/>}/>
+        <Route path='LocalPage' element/>
       </Routes>
     </div>
   );
