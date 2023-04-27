@@ -28,7 +28,7 @@ function Registration(props) {
                     </div>
 
                     <div className={'reg__btns'}>
-                        <Link to={'/'}>
+                        <Link to={'/LocalPage'}>
                             <MyButton type={'submit'} text={'registration'}/>
                         </Link>
                         <Link to={'/'}>

@@ -4,6 +4,7 @@ import {Route, Routes} from 'react-router-dom';
 import PrivateRoute from './Components/Utils/Router/privateRouter';
 import Login from "./Components/Pages/Login page/login";
 import Registration from "./Components/Pages/Registration page/registration";
+import LocalPage from "./Components/Pages/Local page/localPage";
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
 
         <Route path='ChatPage' element/>
 
-        <Route path='LocalPage' element/>
+        <Route path='LocalPage' element={<LocalPage/>}/>
       </Routes>
     </div>
   );
