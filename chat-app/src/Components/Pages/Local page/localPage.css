@@ -1,0 +1,11 @@
+.local__page{
+    width: 100%;
+    height: 100vh;
+
+}
+.local__container{
+    max-width: 1440px;
+    position: relative;
+    margin: 0 auto;
+    height: 100%;
+}

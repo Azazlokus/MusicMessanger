@@ -1,7 +1,30 @@
 .header{
     width: 100%;
-    height: 80px;
+
 }
 .header__container{
-    
+    max-width: 1440px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    height: 80px;
+    align-items: center;
+    padding-left: 67px;
+    padding-right: 67px;
+}
+.header__title{
+    font-weight: 600;
+    font-size: 43px;
+    line-height: 59px;
+    text-transform: uppercase;
+    background: radial-gradient(619.58% 1223.03% at 110.62% 100%, rgba(190, 1, 255, 0.62) 0%, rgba(45, 42, 188, 0.86755) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    opacity: 0.9;
+}
+.header__nav{
+    display: flex;
+    column-gap: 80px;
 }

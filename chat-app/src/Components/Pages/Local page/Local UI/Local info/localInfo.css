@@ -1,0 +1,62 @@
+.info__container{
+    max-width: 1440px;
+    height: 188px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+    margin: 0 auto;
+    padding-left: 394px;
+    padding-top: 14px;
+    border-bottom: 16px solid #373DE8;
+}
+.info__name{
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 54px;
+    text-transform: uppercase;
+    color: #000000;
+}
+.follow__container{
+    display: flex;
+    column-gap: 67px;
+}
+.follow__following{
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+}
+.follow__following_text{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+    text-transform: uppercase;
+    color: #000000;
+}
+.follow__following_count{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+    text-transform: uppercase;
+    color: #A69A9A;
+    text-align: center;
+}
+.follow__followers{
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+}
+.follow__followers_text{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+    text-transform: uppercase;
+    color: #000000;
+}
+.follow__followers_count{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+    text-transform: uppercase;
+    color: #A69A9A;
+    text-align: center;
+}

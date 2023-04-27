@@ -71,6 +71,7 @@ select {
 }
 .app{
   height: 100vh;
+  font-family: 'Open Sans', sans-serif;
 }
 .select__container{
   display: flex;
