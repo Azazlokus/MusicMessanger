@@ -78,8 +78,7 @@
     background: #FFFFFF;
     border: 2px solid #000000;
     border-radius: 30px;
-    opacity: 0.3;
-    font-size: 30px;
+    font-size: 20px;
     padding-left: 20px;
 }
 .login__btns{

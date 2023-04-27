@@ -20,11 +20,11 @@ function Registration(props) {
                     </div>
 
                     <div className={'reg__inputs'}>
-                        <MyInput type={'text'} title={'user name'}/>
-                        <MyInput type={'email'} title={'email'}/>
-                        <MySelect title={'gender'}/>
+                        <MyInput text={'Azamat228'} type={'text'} title={'user name'}/>
+                        <MyInput text={'Baxit@gmail.com'} type={'email'} title={'email'}/>
+                        <MySelect name1={'Male'} name2={'Female'} title={'gender'}/>
                         <MyInput type={'date'} title={'date of birthday'}/>
-                        <MyInput type={'tel'} title={'phone'}/>
+                        <MyInput text={'+74325674321'} type={'tel'} title={'phone'}/>
                     </div>
 
                     <div className={'reg__btns'}>
