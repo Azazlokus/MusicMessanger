@@ -1,0 +1,77 @@
+.reg{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(23.14deg, rgba(232, 0, 252, 0.64) 15.29%, rgba(190, 1, 255, 0.56) 35.82%, rgba(50, 47, 234, 0.86755) 91.08%, rgba(45, 42, 188, 0.86755) 107.49%), rgba(74, 152, 247, 0.95);
+}
+.reg__container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin: 0 auto;
+}
+
+.reg__content {
+    padding: 58px 157px 58px 53px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.reg__logo {
+    align-self: start;
+    margin-bottom: 11px;
+}
+
+.reg__text {
+    display: flex;
+    column-gap: 17px;
+    margin-bottom: 33px;
+}
+
+.reg__text_title {
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 59px;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.reg__text_name {
+    font-weight: 600;
+    font-size: 43px;
+    line-height: 59px;
+    text-transform: uppercase;
+    background: radial-gradient(619.58% 1223.03% at 110.62% 100%, rgba(190, 1, 255, 0.62) 0%, rgba(45, 42, 188, 0.86755) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    opacity: 0.9;
+}
+
+.reg__inputs {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    margin-bottom: 38px;
+}
+
+.reg__btns {
+    display: flex;
+    column-gap: 57px;
+}
+
+.reg__them {
+    background: linear-gradient(23.14deg, rgba(232, 0, 252, 0.64) 15.29%, rgba(190, 1, 255, 0.56) 35.82%, rgba(50, 47, 234, 0.86755) 91.08%, rgba(45, 42, 188, 0.86755) 107.49%), rgba(74, 152, 247, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.reg__them_img{
+    width: 500px;
+    height: 500px;
+}
