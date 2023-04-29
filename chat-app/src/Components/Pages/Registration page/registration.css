@@ -79,6 +79,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    min-height: 1000px;
 }
 .reg__them_img{
     width: 500px;

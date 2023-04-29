@@ -62,6 +62,9 @@ article > * + * {
   margin-top: 1em;
 }
 
+.logIn__item_input{
+  color: black;
+}
 /* Наследуем шрифты для инпутов и кнопок */
 input,
 button,
@@ -69,9 +72,14 @@ textarea,
 select {
   font: inherit;
 }
-.app{
+#root{
   height: 100vh;
+
+}
+.App{
+  height: 100%;
   font-family: 'Open Sans', sans-serif;
+
 }
 .select__container{
   display: flex;

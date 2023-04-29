@@ -5,6 +5,7 @@ import LocalThem from "./Local UI/Local them/localThem";
 import LocalInfo from "./Local UI/Local info/localInfo";
 import LocalAvatar from "./Local UI/Local avatar/localAvatar";
 import LocalNav from "./Local UI/Local nav/localNav";
+import PostContainer from "./Local UI/Local Post/postContainer";
 
 function LocalPage() {
     return (
@@ -15,6 +16,7 @@ function LocalPage() {
                 <LocalInfo/>
                 <LocalAvatar/>
                 <LocalNav/>
+                <PostContainer/>
             </div>
         </div>
     );
