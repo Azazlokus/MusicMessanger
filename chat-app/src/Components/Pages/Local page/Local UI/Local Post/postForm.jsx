@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon } from '@iconify/react';
+
 import './localPost.css';
 
 function PostForm({addNewPost}) {
@@ -15,6 +15,7 @@ function PostForm({addNewPost}) {
         }
         addNewPost(newPost)
         setPost({title: '', text: ''})
+        setCreateFormVisible(false)
     }
 
     function handleForm() {
@@ -29,8 +30,8 @@ function PostForm({addNewPost}) {
     return (
         <div className={'post__form'}>
             <button onClick={handleForm} className={'post__form_btn'}>create</button>
-            <input className={'post__form_input'}/>
-            <Icon className={'post__form_img'} icon="material-symbols:search" />
+            <input placeholder={'Title search'} className={'post__form_input'}/>
+
 
             {createFormVisible && (
                 <div className={'post__form_create'}>

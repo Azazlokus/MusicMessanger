@@ -8,6 +8,8 @@ import LocalNav from "./Local UI/Local nav/localNav";
 import PostContainer from "./Local UI/Local Post/postContainer";
 
 function LocalPage() {
+    const [postVisible, setPostVisible] = React.useState(false)
+
     return (
         <div className={'local__page'}>
             <div className={'local__container'}>
@@ -15,8 +17,13 @@ function LocalPage() {
                 <LocalThem/>
                 <LocalInfo/>
                 <LocalAvatar/>
-                <LocalNav/>
-                <PostContainer/>
+                <LocalNav
+                    postVisible={postVisible}
+                    setPostVisible={setPostVisible}
+                />
+                {postVisible && (
+                    <PostContainer/>
+                )}
             </div>
         </div>
     );
