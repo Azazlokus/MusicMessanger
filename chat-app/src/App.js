@@ -1,6 +1,6 @@
 import React from 'react';
 import '../src/mian.css';
-import {Route, Routes} from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 import PrivateRoute from './Components/Utils/Router/privateRouter';
 import Login from "./Components/Pages/Login page/login";
 import Registration from "./Components/Pages/Registration page/registration";

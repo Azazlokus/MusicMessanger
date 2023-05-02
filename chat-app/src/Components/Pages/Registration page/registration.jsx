@@ -37,7 +37,7 @@ function Registration(props) {
                     </div>
                 </div>
 
-                <div className={'reg__them'}>
+                <div data-testid={'regist-them'} className={'reg__them'}>
                     <img className={'reg__them_img'} alt={'BigLogo'} src={them}/>
                 </div>
             </div>

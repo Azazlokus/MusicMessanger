@@ -11,7 +11,7 @@ function LocalPage() {
     const [postVisible, setPostVisible] = React.useState(false)
 
     return (
-        <div className={'local__page'}>
+        <div data-testid="local-page" className={'local__page'}>
             <div className={'local__container'}>
                 <Header/>
                 <LocalThem/>

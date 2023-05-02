@@ -12,7 +12,7 @@ function Login() {
                 <img className={'login__logo'} src={logo} alt={'Logo'}/>
 
                 <div className={'login__text'}>
-                    <h1 className={'login__text_title'}>wellcome to</h1>
+                    <h1 data-testid={'login-wellcome'} className={'login__text_title'}>wellcome to</h1>
                     <h1 className={'login__text_name'}>chat</h1>
                 </div>
 

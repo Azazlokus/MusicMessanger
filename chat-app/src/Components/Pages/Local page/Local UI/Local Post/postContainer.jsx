@@ -8,6 +8,7 @@ function PostContainer() {
     function addNewPost(newPost){
         setPosts([...posts, newPost])
     }
+
     return (
         <div className={'post__container'}>
             <PostForm addNewPost={addNewPost}/>

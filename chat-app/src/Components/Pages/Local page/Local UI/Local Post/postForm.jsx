@@ -27,6 +27,7 @@ function PostForm({addNewPost}) {
     }
 
 
+
     return (
         <div className={'post__form'}>
             <button onClick={handleForm} className={'post__form_btn'}>create</button>
