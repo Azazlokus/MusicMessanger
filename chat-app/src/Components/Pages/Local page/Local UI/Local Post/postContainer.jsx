@@ -5,14 +5,23 @@ import './localPost.css';
 
 function PostContainer() {
     const [posts, setPosts] = React.useState([])
+    const [searchQuery, setSearchQuery] = React.useState('')
+
+    const searchPosts = React.useMemo(() => {
+        return posts.filter(post => post.title.toLowerCase().includes(searchQuery.toLowerCase()))
+    }, [searchQuery, posts])
     function addNewPost(newPost){
         setPosts([...posts, newPost])
     }
-
+    
+    function removePosts(post) {
+        setPosts(posts.filter(e => e.id !== post.id))
+    }
+    
     return (
         <div className={'post__container'}>
-            <PostForm addNewPost={addNewPost}/>
-            <PostList posts={posts}/>
+            <PostForm searchQuery={searchQuery} setSearchQuery={setSearchQuery} addNewPost={addNewPost}/>
+            <PostList removePosts={removePosts} posts={searchPosts}/>
         </div>
     );
 }

@@ -4,7 +4,7 @@ import repost from '../../../../../image/repost.png';
 import comments from  '../../../../../image/coments.png';
 import { Icon } from '@iconify/react';
 
-function PostItem({post}) {
+function PostItem({post, removePosts}) {
     const [like, setLikes] = React.useState(0);
     const [myLikes, setMyLikes] = React.useState(false);
 
@@ -21,6 +21,7 @@ function PostItem({post}) {
 
     return (
         <div className={'post__item'}>
+            <Icon onClick={() => removePosts(post)} className={'delete__post'} icon="material-symbols:delete-forever" color="red" />
             <div className={'post__item_container'}>
                 <h1 className={'post__item_title'}>{post.title}</h1>
                 <p className={'post__item_text'}>{post.text}</p>

@@ -2,7 +2,7 @@ import React from 'react';
 
 import './localPost.css';
 
-function PostForm({addNewPost}) {
+function PostForm({addNewPost, setSearchQuery, searchQuery}) {
     const [createFormVisible, setCreateFormVisible] = React.useState(false)
     const [post, setPost] = React.useState({title: '', text: ''})
 
@@ -31,7 +31,7 @@ function PostForm({addNewPost}) {
     return (
         <div className={'post__form'}>
             <button onClick={handleForm} className={'post__form_btn'}>create</button>
-            <input placeholder={'Title search'} className={'post__form_input'}/>
+            <input value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder={'Title search'} className={'post__form_input'}/>
 
 
             {createFormVisible && (
