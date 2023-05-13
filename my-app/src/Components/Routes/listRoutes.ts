@@ -1,0 +1,26 @@
+import Auth from "../Pages/Auth/Auth";
+import News from "../Pages/News/News";
+import Profile from "../Pages/Profile/Profile";
+import Chat from "../Pages/Chat/Chat";
+
+export const privateRoutes = [
+    {
+        path: '/news',
+        component: News
+    },
+    {
+        path: '/profile',
+        component: Profile
+    },
+    {
+        path: '/chat',
+        component: Chat
+    },
+]
+
+export const publicRoutes = [
+    {
+        path: '/auth',
+        component: Auth
+    }
+]
