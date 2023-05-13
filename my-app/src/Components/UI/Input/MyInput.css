@@ -1,0 +1,22 @@
+
+/*Styles for MyInput*/
+.input__container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.input__title{
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: #000000;
+}
+.input__myinput{
+    background: #FFFFFF;
+    border: 2px solid black;
+    border-radius: 30px;
+    padding-left: 15px;
+    height: 70px;
+    font-size: 20px;
+}

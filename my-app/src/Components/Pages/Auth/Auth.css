@@ -1,0 +1,55 @@
+/*Styles for Auth page*/
+.auth__wrapper{
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background: linear-gradient(23.14deg, rgba(232, 0, 252, 0.64) 15.29%, rgba(190, 1, 255, 0.56) 35.82%, rgba(50, 47, 234, 0.86755) 91.08%, rgba(45, 42, 188, 0.86755) 107.49%), rgba(74, 152, 247, 0.95);
+}
+.auth__container{
+    padding: 63px 130px;
+    border: 1px solid black;
+    background: #FFFFFF;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.auth__logo{
+    align-self: flex-start;
+}
+.auth__title{
+    margin-top: 17px;
+    display: flex;
+    column-gap: 10px;
+    text-transform: uppercase;
+}
+.auth__title_welcome{
+    font-weight: 600;
+    font-size: 43px;
+    line-height: 59px;
+    color: #000000;
+}
+.auth__title_name{
+    font-weight: 600;
+    font-size: 43px;
+    line-height: 59px;
+    text-transform: uppercase;
+    background: radial-gradient(619.58% 1223.03% at 110.62% 100%, rgba(190, 1, 255, 0.62) 0%, rgba(45, 42, 188, 0.86755) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    opacity: 0.9;
+}
+.auth__inputs{
+    margin-top: 27px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+}
+.auth__btn{
+    margin-top: 69px;
+    display: flex;
+    column-gap: 57px;
+}

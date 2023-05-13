@@ -1,0 +1,23 @@
+.select__container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.select__title{
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: #000000;
+}
+.select__myselect{
+    background: #FFFFFF;
+    border: 2px solid black;
+    border-radius: 30px;
+    padding-left: 15px;
+    height: 70px;
+    font-size: 20px;
+}
+.select__myselect_option{
+
+}

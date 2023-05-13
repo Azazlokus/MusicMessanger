@@ -2,6 +2,7 @@ import Auth from "../Pages/Auth/Auth";
 import News from "../Pages/News/News";
 import Profile from "../Pages/Profile/Profile";
 import Chat from "../Pages/Chat/Chat";
+import Registration from "../Pages/Registration/Registration";
 
 export const privateRoutes = [
     {
@@ -22,5 +23,9 @@ export const publicRoutes = [
     {
         path: '/auth',
         component: Auth
+    },
+    {
+        path: '/registration',
+        component: Registration
     }
 ]
