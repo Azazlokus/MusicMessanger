@@ -1,6 +1,7 @@
 import React from 'react';
 import './Registration.css';
 import logo from '../../../Img/Logo.png';
+import bigLogo from '../../../Img/BigLogo.png';
 import MyInput from "../../UI/Input/MyInput";
 import MySelect from "../../UI/MySelect/MySelect";
 import MyButton from "../../UI/Button/MyButton";
@@ -9,7 +10,12 @@ const Registration = () => {
     return (
         <div className={'reg__wrapper'}>
             <div className={'reg__content'}>
-                <img src={logo} alt={'Logo'}/>
+                <img className={'reg__logo'} src={logo} alt={'Logo'}/>
+
+                <div className={'reg__title'}>
+                    <h1 className={'reg__title_welcome'}>sign up to</h1>
+                    <h1 className={'reg__title_name'}>chat</h1>
+                </div>
 
                 <div className={'reg__inputs'}>
                     <MyInput placeholder={'Jonh2002'} type={'text'} title={'user name'}/>
@@ -26,7 +32,9 @@ const Registration = () => {
                 </div>
             </div>
 
-            <div className={'reg__other'}></div>
+            <div className={'reg__other'}>
+                <img src={bigLogo} alt={'Big Logo'}/>
+            </div>
         </div>
     );
 };
