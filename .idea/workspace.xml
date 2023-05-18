@@ -5,27 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27bda745-4207-4b21-aaff-772e3ef6e58f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/my-app/src/Components/Pages/News/News.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app/src/Components/UI/Header/Header.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app/src/Components/UI/Header/Header.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app/src/Components/UI/SideBar/SideBar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app/src/Components/UI/SideBar/SideBar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app/src/Img/BigLogo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app/src/Img/Profile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app/src/Img/chat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app/src/Img/notif.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app/src/Img/other.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app/src/Img/settings.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/src/Components/UI/Posts/PostForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/src/Components/UI/Posts/PostItem.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/src/Components/UI/Posts/PostList.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/src/Components/UI/Posts/Posts.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Pages/News/News.css" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Pages/News/News.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-app/src/Components/Pages/News/News.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Pages/News/News.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Pages/Registration/Registration.css" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Pages/Registration/Registration.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Pages/Registration/Registration.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Pages/Registration/Registration.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Components/UI/Button/MyButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/UI/Button/MyButton.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Components/UI/Input/MyInput.css" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/UI/Input/MyInput.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Components/UI/MySelect/MySelect.css" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/UI/MySelect/MySelect.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/Components/UI/SideBar/SideBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/UI/SideBar/SideBar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/Components/UI/SideBar/SideBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/UI/SideBar/SideBar.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,22 +43,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "REdevolop",
-    "last_opened_file_path": "C:/Users/tur-2/Documents/GitHub/MusicMessanger/my-app/src/Img",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Users\\tur-2\\Documents\\GitHub\\MusicMessanger\\my-app\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;REdevolop&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/tur-2/Documents/GitHub/MusicMessanger/my-app/src/Img&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\tur-2\\Documents\\GitHub\\MusicMessanger\\my-app\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\tur-2\Documents\GitHub\MusicMessanger\my-app\src\Img" />
@@ -89,6 +78,7 @@
       <workItem from="1683897579317" duration="3258000" />
       <workItem from="1683907696636" duration="1678000" />
       <workItem from="1683948134129" duration="26710000" />
+      <workItem from="1684390188122" duration="600000" />
     </task>
     <servers />
   </component>

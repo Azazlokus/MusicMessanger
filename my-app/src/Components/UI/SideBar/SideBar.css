@@ -2,10 +2,50 @@
 .sidebar__container{
     height: 100%;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 145px;
+    padding-top: 47px;
+    padding-bottom: 40px;
 }
 .sidebar__follow{
-
+    background-color: #FFFFFF;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 28px;
+    padding-left: 21px;
+    padding-bottom: 70px;
+    row-gap: 28px;
+}
+.sidebar__follow_title{
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: #000000;
+    align-self: center;
+}
+.sidebar__follow_list{
+    display: flex;
+    flex-direction: column;
+    row-gap: 23px;
+}
+.sidebar__follow_item{
+    display: flex;
+    column-gap: 21px;
+}
+.sidebar__follow_name{
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: #000000;
+    align-self: center;
 }
 .sidebar__nav{
-
+    background-color: #FFFFFF;
+    height: 382px;
+    width: 100%;
+    border-radius: 30px;
 }
