@@ -1,8 +1,54 @@
 /*Styles for PostForm*/
 .postform__container{
     display: flex;
-    height: 133px;
+    padding: 20px 10px 20px 10px;
     align-items: center;
     background-color: #FFFFFF;
-    border-radius: 30px;
+    border-radius: 20px;
+    column-gap: 52px;
+}
+.postform__create{
+    width: 145px;
+    height: 50px;
+    background: linear-gradient(180deg, #D556FB 3.44%, rgba(5, 0, 255, 0.86755) 98.22%, #325CDE 98.23%);
+    background-blend-mode: darken;
+    opacity: 0.7;
+    border: 2px solid #B3B3B3;
+    border-radius: 10px;
+}
+.postform__input{
+    width: 863px;
+    height: 50px;
+    background: rgba(75, 61, 239, 0.14);
+
+    border-radius: 10px;
+}
+.postform__btn{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+.postform__icon{
+    width: 50px;
+    height: 50px;
+}
+
+/*Styles for PostList*/
+.postlist__container{
+    width: 100%;
+    background-color: #FFFFFF;
+    height: 100%;
+    border-radius: 20px;
+    padding: 20px 40px 20px 40px;
+}
+
+/*Styles for PostItem*/
+.postitem__container{
+    width: 100%;
+    display: flex;
+    border: 1px solid black;
+    flex-direction: column;
+}
+.postitem__header{
+    display: flex;
 }

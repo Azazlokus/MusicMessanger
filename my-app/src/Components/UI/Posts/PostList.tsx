@@ -1,10 +1,11 @@
 import React from 'react';
 import './Posts.css';
+import PostItem from "./PostItem";
 
 const PostList = () => {
     return (
-        <div>
-            PostList
+        <div className={'postlist__container'}>
+            <PostItem/>
         </div>
     );
 };
