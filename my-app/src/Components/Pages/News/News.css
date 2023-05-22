@@ -4,7 +4,7 @@
 }
 .news__content{
     display: grid;
-    grid-template: 1fr / 20% auto;
+    grid-template: 1fr / 20% 80%;
     height: 100%;
     max-width: 1440px;
     margin: 0 auto;

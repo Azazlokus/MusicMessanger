@@ -1,6 +1,7 @@
 import React from 'react';
 import './Posts.css';
-import MyButton from "../Button/MyButton";
+import {Icon} from "@iconify/react";
+
 
 const PostForm = () => {
     return (
@@ -11,7 +12,9 @@ const PostForm = () => {
                 <input type={'text'} className={'postform__input'}/>
 
                 <div className={'postform__btn'}>
-
+                    <Icon className={'postform__icon'} icon="material-symbols:add-a-photo" color="blue" />
+                    <Icon className={'postform__icon'} icon="carbon:music-add" color="blue" />
+                    <Icon className={'postform__icon'} icon="fluent:video-add-20-filled" color="blue" />
                 </div>
             </div>
         </div>

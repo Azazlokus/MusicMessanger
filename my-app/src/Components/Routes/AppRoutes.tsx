@@ -3,7 +3,7 @@ import {Navigate, Route, Routes} from "react-router-dom";
 import {privateRoutes, publicRoutes} from "./listRoutes";
 
 const AppRoutes = () => {
-    const user = false
+    const user = true
 
     return (!user ?
             (
