@@ -4,30 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27bda745-4207-4b21-aaff-772e3ef6e58f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/my-app/src/Components/UI/Posts/PostForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app/src/Components/UI/Posts/PostItem.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app/src/Components/UI/Posts/PostList.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app/src/Components/UI/Posts/Posts.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="63cf2441-7fbe-4d5e-a1fa-c60974b94242" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Pages/News/News.css" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Pages/News/News.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Pages/News/News.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Pages/News/News.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Components/UI/SideBar/SideBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/UI/SideBar/SideBar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Components/UI/SideBar/SideBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/UI/SideBar/SideBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Pages/Auth/Auth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Pages/Auth/Auth.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Pages/Registration/Registration.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Pages/Registration/Registration.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Routes/AppRoutes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Routes/AppRoutes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Routes/listRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Routes/listRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="TypeScript JSX File" />
-        <option value="CSS File" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -35,21 +23,17 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2Ph7gurOpfFflaiFxqoSvRLYBV7" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2Q6iZDYOUQ5LpOZ0QmWLOvrQLLD" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;REdevolop&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/tur-2/Documents/GitHub/MusicMessanger/my-app/src/Img&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -59,26 +43,16 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\tur-2\Documents\GitHub\MusicMessanger\my-app\src\Img" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\tur-2\Documents\GitHub\MusicMessanger\my-app\src\Img" />
-    </key>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="27bda745-4207-4b21-aaff-772e3ef6e58f" name="Changes" comment="" />
-      <created>1683897575723</created>
+      <changelist id="63cf2441-7fbe-4d5e-a1fa-c60974b94242" name="Changes" comment="" />
+      <created>1684680486019</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1683897575723</updated>
-      <workItem from="1683897579317" duration="3258000" />
-      <workItem from="1683907696636" duration="1678000" />
-      <workItem from="1683948134129" duration="26710000" />
-      <workItem from="1684390188122" duration="600000" />
+      <updated>1684680486019</updated>
+      <workItem from="1684680488225" duration="1280000" />
+      <workItem from="1684753237974" duration="3309000" />
     </task>
     <servers />
   </component>

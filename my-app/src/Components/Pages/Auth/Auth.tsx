@@ -3,6 +3,7 @@ import logo from '../../../Img/Logo.png';
 import './Auth.css';
 import MyInput from "../../UI/Input/MyInput";
 import MyButton from "../../UI/Button/MyButton";
+import {Link} from "react-router-dom";
 
 const Auth = () => {
     return (
@@ -22,7 +23,9 @@ const Auth = () => {
 
                 <div className={'auth__btn'}>
                     <MyButton buttonText={'log in'} type={'submit'}/>
-                    <MyButton buttonText={'REGISTRATION'}/>
+                    <Link to={'/registration'}>
+                        <MyButton buttonText={'REGISTRATION'}/>
+                    </Link>
                 </div>
             </section>
         </div>

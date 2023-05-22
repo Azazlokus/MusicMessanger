@@ -5,6 +5,7 @@ import bigLogo from '../../../Img/BigLogo.png';
 import MyInput from "../../UI/Input/MyInput";
 import MySelect from "../../UI/MySelect/MySelect";
 import MyButton from "../../UI/Button/MyButton";
+import {Link} from "react-router-dom";
 
 const Registration = () => {
     return (
@@ -28,7 +29,9 @@ const Registration = () => {
 
                 <div className={'reg__btn'}>
                     <MyButton buttonText={'registration'}/>
-                    <MyButton buttonText={'log in'}/>
+                    <Link to={'/'}>
+                        <MyButton buttonText={'log in'}/>
+                    </Link>
                 </div>
             </div>
 

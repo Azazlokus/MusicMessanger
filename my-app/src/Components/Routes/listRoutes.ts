@@ -21,7 +21,7 @@ export const privateRoutes = [
 
 export const publicRoutes = [
     {
-        path: '/auth',
+        path: '/',
         component: Auth
     },
     {
