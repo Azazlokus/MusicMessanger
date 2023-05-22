@@ -9,7 +9,7 @@ const PostForm = () => {
             <div className={'postform__container'}>
                 <button className={'postform__create'}>post create</button>
 
-                <input type={'text'} className={'postform__input'}/>
+                <input maxLength={217} type={'text'} className={'postform__input'}/>
 
                 <div className={'postform__btn'}>
                     <Icon className={'postform__icon'} icon="material-symbols:add-a-photo" color="blue" />

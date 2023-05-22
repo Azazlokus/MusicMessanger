@@ -6,6 +6,17 @@ import repost from '../../../Img/repost.png';
 import {Icon} from "@iconify/react";
 
 const PostItem = () => {
+    const [likeValue, setLikeValue] = React.useState(0)
+    const [isLike, setIsLike] = React.useState(false)
+    function like() {
+        if(isLike){
+            setLikeValue(likeValue -1)
+            setIsLike(false)
+        } else {
+            setLikeValue(likeValue + 1)
+            setIsLike(true)
+        }
+    }
     return (
         <div className={'postitem__container'}>
             <header className={'postitem__header'}>
@@ -16,12 +27,14 @@ const PostItem = () => {
                 </div>
             </header>
 
-            <p className={'postitem__content_text'}></p>
+            <p className={'postitem__content_text'}>
+
+            </p>
 
             <footer className={'postitem__footer'}>
                 <div className={'postitem__footer_likes'}>
-                    <Icon className={'postitem__footer_img'} icon="icon-park-solid:like" color="red"/>
-                    <h2 className={'postitem__footer_likevalue'}></h2>
+                    <Icon onClick={like} className={'postitem__footer_img'} icon="icon-park-solid:like" color="red"/>
+                    <h2 className={'postitem__footer_likevalue'}>{likeValue !== 0 ? likeValue : ''}</h2>
                 </div>
                 <img className={'postitem__footer_img'} src={comments} alt={'Comments'}/>
                 <img className={'postitem__footer_img'} src={repost} alt={'Repost'}/>
