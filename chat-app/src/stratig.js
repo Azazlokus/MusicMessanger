@@ -62,3 +62,51 @@ calculator.setStrategy(new MultiplicationStrategy());
 // Выполнение операции умножения
 const result3 = calculator.executeStrategy(6, 2);
 console.log(`Результат умножения: ${result3}`);
+
+
+class NotificationService {
+    constructor(notificationStrategy) {
+        this.notificationStrategy = notificationStrategy;
+    }
+
+    setNotificationStrategy(notificationStrategy) {
+        this.notificationStrategy = notificationStrategy;
+    }
+
+    sendNotification(user, message) {
+        this.notificationStrategy.sendNotification(user, message);
+    }
+}
+
+class EmailNotificationStrategy {
+    sendNotification(user, message) {
+        console.log(`Sending email notification to ${user}: ${message}`);
+    }
+}
+
+class SMSNotificationStrategy {
+    sendNotification(user, message) {
+        console.log(`Sending SMS notification to ${user}: ${message}`);
+    }
+}
+
+class PushNotificationStrategy {
+    sendNotification(user, message) {
+        console.log(`Sending push notification to ${user}: ${message}`);
+    }
+}
+
+// Создаем объекты стратегий
+const emailStrategy = new EmailNotificationStrategy();
+const smsStrategy = new SMSNotificationStrategy();
+const pushStrategy = new PushNotificationStrategy();
+
+// Создаем сервис уведомлений и устанавливаем стратегию по умолчанию
+const notificationService = new NotificationService(emailStrategy);
+
+// Тестирование различных стратегий
+notificationService.sendNotification('John', 'New message received');
+notificationService.setNotificationStrategy(smsStrategy);
+notificationService.sendNotification('Alice', 'You have a new friend request');
+notificationService.setNotificationStrategy(pushStrategy);
+notificationService.sendNotification('Bob', 'Reminder: Meeting at 3 PM');

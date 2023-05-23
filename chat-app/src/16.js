@@ -1,58 +1,49 @@
 
-class Character {
-    constructor(name, type, health, strength) {
-        this.name = name;
-        this.type = type;
-        this.health = health;
-        this.strength = strength;
+class Post {
+    constructor(data) {
+        this.date = data.date;
+        this.creator = data.creator;
     }
 
-    getInfo() {
-        console.log(`Character: ${this.name}, Type: ${this.type}, Health: ${this.health}, Strength: ${this.strength}`);
+    display() {
+        console.log(`Post: [Date: ${this.date}, Creator: ${this.creator}]`);
     }
 }
 
 
-class CharacterFactory {
+class PostFactory {
     constructor() {
-        this.characters = {};
+        this.posts = {};
     }
+    getPost(date, creator) {
+        const key = `${date}-${creator}`;
 
-    getCharacter(type) {
-        if (!this.characters[type]) {
-            switch (type) {
-                case 'warrior':
-                    this.characters[type] = new Character('Warrior', 'Warrior', 100, 10);
-                    break;
-                case 'mage':
-                    this.characters[type] = new Character('Mage', 'Mage', 80, 5);
-                    break;
-                case 'archer':
-                    this.characters[type] = new Character('Archer', 'Archer', 90, 8);
-                    break;
-                default:
-                    throw new Error(`Invalid character type: ${type}`);
-            }
+        if (this.posts[key]) {
+            return this.posts[key];
         }
-        return this.characters[type];
+
+        const data = {
+            date,
+            creator
+        };
+        const newPost = new Post(data);
+        this.posts[key] = newPost;
+
+        return newPost;
     }
 }
 
-// Использование
-const characterFactory = new CharacterFactory();
 
-// Создание персонажей с общими характеристиками
-const warrior1 = characterFactory.getCharacter('warrior');
-const warrior2 = characterFactory.getCharacter('warrior');
-const mage1 = characterFactory.getCharacter('mage');
-const mage2 = characterFactory.getCharacter('mage');
-const archer1 = characterFactory.getCharacter('archer');
-const archer2 = characterFactory.getCharacter('archer');
+const postFactory = new PostFactory();
 
-// Вывод информации о персонажах
-warrior1.getInfo();
-warrior2.getInfo();
-mage1.getInfo();
-mage2.getInfo();
-archer1.getInfo();
-archer2.getInfo();
+const post1 = postFactory.getPost('2023-05-18', 'John');
+const post2 = postFactory.getPost('2023-05-19', 'Alice');
+const post3 = postFactory.getPost('2023-05-18', 'John');
+
+post1.display();
+post2.display();
+post3.display();
+
+
+
+
