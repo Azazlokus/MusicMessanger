@@ -23,6 +23,10 @@ const AppRoutes = () => {
                         {privateRoutes.map(priv => (
                             <Route path={priv.path} element={<priv.component/>}/>
                         ))}
+                        <Route
+                            path="/*"
+                            element={<Navigate to="/news" replace />}
+                        />
                     </Routes>
                 )
     );

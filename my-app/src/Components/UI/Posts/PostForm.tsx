@@ -7,7 +7,7 @@ const PostForm = () => {
     return (
         <div>
             <div className={'postform__container'}>
-                <button className={'postform__create'}>post create</button>
+                <button className={'postform__create'}>create</button>
 
                 <input maxLength={217} type={'text'} className={'postform__input'}/>
 

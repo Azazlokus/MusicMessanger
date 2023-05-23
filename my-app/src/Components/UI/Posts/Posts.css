@@ -15,6 +15,7 @@
     opacity: 0.7;
     border: 2px solid #B3B3B3;
     border-radius: 10px;
+    text-transform: uppercase;
 }
 .postform__input{
     width: 863px;

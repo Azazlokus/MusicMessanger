@@ -1,3 +1,4 @@
+/*Style for Profile page*/
 .profile__container{
     display: flex;
     flex-direction: column;
@@ -15,7 +16,7 @@
 .profile__theme{
     height: 307px;
     width: 100%;
-    background: #B3B3B3;
+    background: blue;
     border-top-right-radius: 30px;
     border-top-left-radius: 30px;
 }
