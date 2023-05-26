@@ -3,10 +3,11 @@ import './MyButton.css';
 interface buttonProps {
     buttonText: string
     type?: 'submit' |'button' | 'reset' | undefined
+    onClick?: any
 }
-const MyButton:FC<buttonProps> = ({buttonText, type}) => {
+const MyButton:FC<buttonProps> = ({buttonText, onClick, type}) => {
     return (
-        <button type={type} className={'mybutton'}>
+        <button onClick={onClick} type={type} className={'mybutton'}>
             {buttonText}
         </button>
     );

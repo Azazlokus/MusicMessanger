@@ -1,15 +1,16 @@
 import React from 'react';
 import {Navigate, Route, Routes} from "react-router-dom";
 import {privateRoutes, publicRoutes} from "./listRoutes";
+import {useAuth} from "../Provider/useAuth";
 
 const AppRoutes = () => {
-    const user = true
+    const {user} = useAuth()
 
     return (!user ?
             (
                 <Routes>
                     {publicRoutes.map(pub => (
-                        <Route path={pub.path} element={<pub.component/>}/>
+                        <Route key={pub.path} path={pub.path} element={<pub.component/>}/>
                     ))}
                     <Route
                         path="/*"
@@ -21,7 +22,7 @@ const AppRoutes = () => {
                 (
                     <Routes>
                         {privateRoutes.map(priv => (
-                            <Route path={priv.path} element={<priv.component/>}/>
+                            <Route key={priv.path} path={priv.path} element={<priv.component/>}/>
                         ))}
                         <Route
                             path="/*"

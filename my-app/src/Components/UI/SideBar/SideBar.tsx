@@ -1,8 +1,12 @@
 import React, {FC} from 'react';
 import ava from '../../../Img/Avatar.png';
 import './SideBar.css';
+import {useAuth} from "../../Provider/useAuth";
+import {signOut} from 'firebase/auth'
 
 const SideBar:FC = () => {
+    const {user, gAuth} = useAuth()
+
     return (
         <div className={'sidebar__container'}>
             <div className={'sidebar__follow'}>
@@ -32,7 +36,9 @@ const SideBar:FC = () => {
             </div>
 
             <div className={'sidebar__nav'}>
-
+                {user && (
+                    <button onClick={() => signOut(gAuth)}>Exit</button>
+                )}
             </div>
         </div>
     );
