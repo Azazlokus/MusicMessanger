@@ -38,3 +38,6 @@
 .header__profile{
     cursor: pointer;
 }
+.link__header{
+    text-decoration: none;
+}

@@ -2,6 +2,7 @@ import React, {FC} from 'react';
 import Header from "../../UI/Header/Header";
 import ava from '../../../Img/Avatar.png'
 import './Chat.css';
+import Message from "./Message";
 
 const Chat:FC = () => {
     return (
@@ -12,7 +13,7 @@ const Chat:FC = () => {
                     <input className={'chat__sidebar_input'}/>
                     <ul className={'chat__sidebar_users'}>
                         <li className={'chat__sidebar_user'}>
-                            <img src={ava} alt={"Avatar"}/>
+                            <img className={'chat__sidebar_avatar'} src={ava} alt={"Avatar"}/>
 
                             <div className={'chat__user_info'}>
                                 <h2 className={'chat__user_name'}>Konstantin Konstantinopolski</h2>
@@ -20,7 +21,7 @@ const Chat:FC = () => {
                             </div>
                         </li>
                         <li className={'chat__sidebar_user'}>
-                            <img src={ava} alt={"Avatar"}/>
+                            <img className={'chat__sidebar_avatar'} src={ava} alt={"Avatar"}/>
 
                             <div className={'chat__user_info'}>
                                 <h2 className={'chat__user_name'}>Azazlo2004</h2>
@@ -28,7 +29,7 @@ const Chat:FC = () => {
                             </div>
                         </li>
                         <li className={'chat__sidebar_user'}>
-                            <img src={ava} alt={"Avatar"}/>
+                            <img className={'chat__sidebar_avatar'} src={ava} alt={"Avatar"}/>
 
                             <div className={'chat__user_info'}>
                                 <h2 className={'chat__user_name'}>Baxit2007</h2>
@@ -36,7 +37,7 @@ const Chat:FC = () => {
                             </div>
                         </li>
                         <li className={'chat__sidebar_user'}>
-                            <img src={ava} alt={"Avatar"}/>
+                            <img className={'chat__sidebar_avatar'} src={ava} alt={"Avatar"}/>
 
                             <div className={'chat__user_info'}>
                                 <h2 className={'chat__user_name'}>MaksimLox2002</h2>
@@ -47,7 +48,7 @@ const Chat:FC = () => {
                 </div>
 
                 <div className={'chat__dialogs'}>
-                    Chat
+                    <Message/>
                 </div>
             </div>
         </>

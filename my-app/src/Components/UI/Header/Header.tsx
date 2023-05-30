@@ -11,7 +11,7 @@ const Header = () => {
     return (
         <header className={'header'}>
             <div className={'header__container'}>
-                <Link to={'/news'}>
+                <Link className={'link__header'} to={'/news'}>
                     <h1 className={'header__logo'}>chat</h1>
                 </Link>
 
@@ -32,7 +32,9 @@ const Header = () => {
                     </li>
                 </ul>
 
-                <img className={'header__profile'} src={profile} alt={'Profile'}/>
+                <Link className={'link__header'} to={'/profile'}>
+                    <img className={'header__profile'} src={profile} alt={'Profile'}/>
+                </Link>
             </div>
         </header>
     );

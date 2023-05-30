@@ -1,5 +1,142 @@
+/*Styles for Chat page*/
 .chat__content{
     display: flex;
     max-width: 1440px;
     margin: 0 auto;
+    border-top: 2px solid #949494;
+}
+.chat__sidebar{
+    padding: 15px 44px 0 24px;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    row-gap: 28px;
+    height: 100vh;
+}
+.chat__dialogs{
+    width: 100%;
+}
+.chat__sidebar_input{
+    width: 295px;
+    height: 27px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 10px;
+}
+.chat__sidebar_users{
+    display: flex;
+    flex-direction: column;
+    row-gap: 28px;
+}
+.chat__sidebar_user{
+    display: flex;
+    column-gap: 12px;
+}
+.chat__sidebar_avatar{
+    width: 48px;
+    height: 48px;
+}
+.chat__user_info{
+
+}
+.chat__user_name{
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    color: #333333;
+}
+.chat__user_last-message{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #949494;
+}
+
+/*Styles for Message*/
+.chat-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.chat-header {
+    background-color: white;
+    border-left: 2px solid #949494;
+    color: black;
+    height: 86px;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.chat-body {
+    flex-grow: 1;
+    overflow-y: scroll;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    row-gap: 10px;
+}
+
+.message {
+    margin-bottom: 10px;
+}
+
+.sender-message {
+    display: flex;
+    color: blue;
+    align-items: flex-start;
+    row-gap: 10px;
+    font-weight: 700;
+    flex-direction: column; /* выравнивание сообщения отправителя справа */
+}
+
+
+.msg__item{
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+}
+.msg__item_img{
+    width: 50px;
+    height: 50px;
+}
+.msg__item_avatar{
+    width: 100%;
+    height: 100%;
+}
+.msg__item_name{
+    font-size: 20px;
+    color: black;
+}
+.message-text{
+    color: black;
+    font-size: 24px;
+    word-break: break-all;
+    word-wrap: anywhere;
+}
+
+
+.chat-footer {
+    background-color: #eee;
+    padding: 10px;
+}
+
+.message-form {
+    display: flex;
+}
+
+.message-input {
+    flex-grow: 1;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.send-button {
+    background-color: #2c3e50;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px 10px;
 }
