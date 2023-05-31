@@ -6,6 +6,7 @@ import PostForm from "../../UI/Posts/PostForm";
 import PostList from "../../UI/Posts/PostList";
 
 const News = () => {
+    const [posts, setPosts]  = React.useState([])
     return (
         <div className={'news__wrapper'}>
             <Header/>
@@ -13,7 +14,7 @@ const News = () => {
                 <SideBar/>
                 <div className={'news__posts'}>
                     <PostForm/>
-                    <PostList/>
+                    <PostList posts={posts}/>
                 </div>
             </div>
         </div>

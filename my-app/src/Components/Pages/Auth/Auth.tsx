@@ -6,7 +6,7 @@ import MyButton from "../../UI/Button/MyButton";
 import {IUserData} from "../../../Type";
 import MySelect from "../../UI/MySelect/MySelect";
 import bigLogo from "../../../Img/BigLogo.png";
-import {createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth'
+import {updateProfile,createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
 import {useAuth} from "../../Provider/useAuth";
 
 const Auth = () => {
@@ -31,6 +31,7 @@ const Auth = () => {
     const [userData, setUserData] = React.useState<IUserData>({
         email: '',
         password: '',
+        name: '',
     } as IUserData)
 
     /**
@@ -41,7 +42,10 @@ const Auth = () => {
 
         if(regForm){
             try {
-                await createUserWithEmailAndPassword(gAuth, userData.email, userData.password)
+                const res = await createUserWithEmailAndPassword(gAuth, userData.email, userData.password)
+                await updateProfile(res.user,{
+                    displayName: userData.name
+                })
             }
             catch (error) {
                 alert('Error')
@@ -96,7 +100,12 @@ const Auth = () => {
                         </div>
 
                         <div className={'reg__inputs'}>
-                            {/*<MyInput placeholder={'Jonh2002'} type={'text'} title={'user name'}/>*/}
+                            <MyInput
+                                value={userData.name}
+                                onChange={(e:any) => setUserData({...userData, name: e.target.value})}
+                                placeholder={'Jonh2002'}
+                                type={'text'}
+                                title={'user name'}/>
                             <MyInput
                                 value={userData.email}
                                 onChange={(e: any) => setUserData({...userData, email: e.target.value})}

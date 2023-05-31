@@ -4,12 +4,14 @@ import './Profile.css';
 import Avatar from '../../../Img/ProfileAvatar.png';
 import PostList from "../../UI/Posts/PostList";
 import PostForm from "../../UI/Posts/PostForm";
+import {useAuth} from "../../Provider/useAuth";
 
 const Profile = () => {
     const [postVisiable, setPostVisiable] = React.useState(false)
     const [musicVisiable, setMusicVisiable] = React.useState(false)
     const [photoVisiable, setPhotoVisiable] = React.useState(false)
 
+    const {user} = useAuth()
     function postHandler() {
         if(postVisiable){
            setPostVisiable(false)
@@ -50,10 +52,10 @@ const Profile = () => {
 
                 <div className={'profile__user'}>
                     <div className={'profile__user_img'}>
-                        <img src={Avatar} alt={'Avatar'} className={'profile__user_avatar'}/>
+                        <img src={user?.avatar} alt={'Avatar'} className={'profile__user_avatar'}/>
                     </div>
                     <div className={'profile__user_info'}>
-                        <h1 className={'profile__user_name'}>Azazlo777</h1>
+                        <h1 className={'profile__user_name'}>{user?.name}</h1>
 
                         <div className={'profile__user_friends'}>
                             <div className={'profile__user_follow follow'}>

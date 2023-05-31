@@ -16,5 +16,6 @@ export interface IPost {
 
 export interface IUserData {
     email: string,
-    password: string
+    password: string,
+    name: string
 }
