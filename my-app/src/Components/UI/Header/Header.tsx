@@ -6,10 +6,12 @@ import settings from '../../../Img/settings.png';
 import profile from '../../../Img/Profile.png';
 import './Header.css';
 import {Link} from "react-router-dom";
+import {signOut} from "firebase/auth";
+import {useAuth} from "../../Provider/useAuth";
 
 
 const Header = () => {
-
+    const {user, gAuth} = useAuth()
     return (
         <header className={'header'}>
             <div className={'header__container'}>
@@ -34,8 +36,11 @@ const Header = () => {
                     </li>
                 </ul>
 
-                <Link className={'link__header'} to={'/profile'}>
+                <Link className={'link__header'} to={`/profile`}>
                     <img className={'header__profile'} src={profile} alt={'Profile'}/>
+                    {user && (
+                        <button onClick={() => signOut(gAuth)}>Exit</button>
+                    )}
                 </Link>
             </div>
         </header>

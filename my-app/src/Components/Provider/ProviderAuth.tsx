@@ -2,12 +2,15 @@ import React, {createContext, FC} from "react";
 import {IUser, TypeSetState} from "../../Type";
 import {getAuth, onAuthStateChanged, Auth} from 'firebase/auth';
 import {getFirestore, Firestore} from 'firebase/firestore';
+import ava from '../../Img/Avatar.png'
 
 interface IContext {
     user: IUser | null
     setUser: TypeSetState<IUser | null>
     gAuth: Auth
     base: Firestore
+    users: IUser[]
+    setUsers: TypeSetState<IUser[]>
 }
 interface AuthProv {
     children: any
@@ -16,6 +19,7 @@ interface AuthProv {
 export const AuthContext = createContext<IContext>({} as IContext)
 
 export const AuthProvider: FC<AuthProv> = ({children}) => {
+    const [users, setUsers] = React.useState<IUser[]>([])
     const [user, setUser] = React.useState<IUser | null>(null)
     const gAuth = getAuth()
     const base = getFirestore()
@@ -25,8 +29,9 @@ export const AuthProvider: FC<AuthProv> = ({children}) => {
             if(authUser){
                 const newUser: IUser = {
                     _id: authUser.uid,
-                    avatar: '',
+                    avatar: ava,
                     name: authUser.displayName || '',
+                    follow: []
                 };
 
                 setUser(newUser);
@@ -46,7 +51,9 @@ export const AuthProvider: FC<AuthProv> = ({children}) => {
         setUser,
         gAuth,
         base,
-    }), [user, gAuth, base])
+        users,
+        setUsers
+    }), [user, gAuth, base, users])
 
     return (
         <AuthContext.Provider value={values}>

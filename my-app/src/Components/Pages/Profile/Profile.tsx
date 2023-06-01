@@ -4,12 +4,14 @@ import './Profile.css';
 import {useAuth} from "../../Provider/useAuth";
 
 
+
 const Profile = () => {
     const [postVisiable, setPostVisiable] = React.useState(false)
     const [musicVisiable, setMusicVisiable] = React.useState(false)
     const [photoVisiable, setPhotoVisiable] = React.useState(false)
 
     const {user} = useAuth()
+
     function postHandler() {
         if(postVisiable){
            setPostVisiable(false)
@@ -58,12 +60,12 @@ const Profile = () => {
                         <div className={'profile__user_friends'}>
                             <div className={'profile__user_follow follow'}>
                                 <h2 className={'profile__follow_title'}>following</h2>
-                                <p className={'profile__follow_count'}>300</p>
+                                <p className={'profile__follow_count'}>3000</p>
                             </div>
 
                             <div className={'profile__user_followers followers'}>
                                 <h2 className={'profile__followers_title'}>followers</h2>
-                                <p className={'profile__followers_count'}>30000</p>
+                                <p className={'profile__followers_count'}>{user?.follow.length}</p>
                             </div>
                         </div>
                     </div>

@@ -5,6 +5,7 @@ export interface IUser {
     _id: string
     avatar: string
     name: string
+    follow: IUser[]
 }
 
 export interface IPost {
@@ -24,8 +25,4 @@ export interface IMessage {
     user: IUser,
     message: string,
     createdAt: string
-}
-
-export interface IUsers {
-    user: IUser
 }

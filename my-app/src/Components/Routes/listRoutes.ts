@@ -14,7 +14,15 @@ export const privateRoutes = [
         component: Profile
     },
     {
+        path: '/profile/:id',
+        component: Profile
+    },
+    {
         path: '/chat',
+        component: Chat
+    },
+    {
+        path: '/chat/:id',
         component: Chat
     },
 ]
