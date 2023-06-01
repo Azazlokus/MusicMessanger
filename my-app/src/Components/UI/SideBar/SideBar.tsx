@@ -1,9 +1,8 @@
 import React, {FC} from 'react';
 import './SideBar.css';
 import {useAuth} from "../../Provider/useAuth";
-import {signOut} from 'firebase/auth'
-import {collection, getDocs, onSnapshot} from "firebase/firestore";
-import {IPost, IUser} from "../../../Type";
+import {collection, onSnapshot} from "firebase/firestore";
+import {IUser} from "../../../Type";
 import {Link} from "react-router-dom";
 
 const SideBar:FC = () => {
@@ -22,7 +21,7 @@ const SideBar:FC = () => {
     };
 
     React.useEffect(() => {
-        const unsub = onSnapshot(collection(base, 'users', ), doc => {
+        const unsub = onSnapshot(collection(base, 'users'), doc => {
             const arr:IUser[] = []
             doc.forEach((d:any) => {
                 arr.push(d.data())
@@ -37,7 +36,6 @@ const SideBar:FC = () => {
             unsub()
         }
     }, [])
-    console.log(users)
     return (
         <div className={'sidebar__container'}>
             <div className={'sidebar__follow'}>

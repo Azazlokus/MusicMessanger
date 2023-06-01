@@ -2,6 +2,8 @@ import React from 'react';
 import Header from "../../UI/Header/Header";
 import './Profile.css';
 import {useAuth} from "../../Provider/useAuth";
+import {Navigate} from "react-router-dom";
+import {doc, updateDoc} from 'firebase/firestore'
 
 
 
@@ -10,7 +12,24 @@ const Profile = () => {
     const [musicVisiable, setMusicVisiable] = React.useState(false)
     const [photoVisiable, setPhotoVisiable] = React.useState(false)
 
-    const {user} = useAuth()
+    const {user, users, base} = useAuth()
+    const userId = window.location.pathname.split('/id:').pop();
+    const currentUser = users.find((usr) => usr._id === userId);
+    const userProfile = currentUser && currentUser._id !== user?._id ? currentUser : user;
+    
+    const handleFollow = async () => {
+        if (user !== null) {
+            // Обновление массива follow
+            const userRef = doc(base, 'users', user._id);
+            await updateDoc(userRef, {
+                follow: [...user.follow, currentUser],
+            });
+        }
+    }
+
+    if (!userProfile) {
+        return <Navigate to="/news" replace />;
+    }
 
     function postHandler() {
         if(postVisiable){
@@ -50,26 +69,39 @@ const Profile = () => {
             <div className={'profile__content'}>
                 <div className={'profile__theme'}></div>
 
-                <div className={'profile__user'}>
-                    <div className={'profile__user_img'}>
-                        <img src={user?.avatar} alt={'Avatar'} className={'profile__user_avatar'}/>
-                    </div>
-                    <div className={'profile__user_info'}>
-                        <h1 className={'profile__user_name'}>{user?.name}</h1>
+                {user?._id !== userId ? (
+                    <div className={'profile__user'}>
+                        <div className={'profile__user_img'}>
+                            <img src={userProfile.avatar} alt={'Avatar'} className={'profile__user_avatar'} />
+                        </div>
+                        <div className={'profile__user_info'}>
+                            <h1 className={'profile__user_name'}>{userProfile.name}</h1>
 
-                        <div className={'profile__user_friends'}>
-                            <div className={'profile__user_follow follow'}>
-                                <h2 className={'profile__follow_title'}>following</h2>
-                                <p className={'profile__follow_count'}>3000</p>
-                            </div>
+                            <div className={'profile__user_friends'}>
+                                <div className={'profile__user_follow follow'}>
+                                    <h2 className={'profile__follow_title'}>following</h2>
+                                    <p className={'profile__follow_count'}>3000</p>
+                                </div>
 
-                            <div className={'profile__user_followers followers'}>
-                                <h2 className={'profile__followers_title'}>followers</h2>
-                                <p className={'profile__followers_count'}>{user?.follow.length}</p>
+                                <div className={'profile__user_followers followers'}>
+                                    <h2 className={'profile__followers_title'}>followers</h2>
+                                    <p className={'profile__followers_count'}>{userProfile.follow.length}</p>
+                                </div>
                             </div>
                         </div>
+                        {userId !== '/profile' ? (
+                            <div className={'add__btn'}>
+                                <button onClick={handleFollow} className={'btn__to_add'}>Follow</button>
+                            </div>
+                        ): (
+                            <div className={'edit__btn'}>
+                                <button className={'btn__to_edit'}>Edit</button>
+                            </div>
+                        )}
                     </div>
-                </div>
+                ): (
+                    <Navigate to={'/profile'}/>
+                )}
 
                 <ul className={'profile__nav'}>
                     <li onClick={postHandler} className={'profile__nav_item'}>

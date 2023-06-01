@@ -3,7 +3,7 @@ import logo from '../../../Img/Logo.png';
 import './Auth.css';
 import MyInput from "../../UI/Input/MyInput";
 import MyButton from "../../UI/Button/MyButton";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, setDoc, doc } from "firebase/firestore";
 import {IUserData} from "../../../Type";
 import MySelect from "../../UI/MySelect/MySelect";
 import bigLogo from "../../../Img/BigLogo.png";
@@ -48,13 +48,13 @@ const Auth = () => {
                     displayName: userData.name
                 })
                 try {
-                    const docRef = await addDoc(collection(base, "users"), {
+                    await setDoc(doc(base, "users", res.user.uid), {
                         name: userData.name,
                         _id: res.user.uid,
                         avatar: ava,
                         follow: []
                     });
-                    console.log("Document written with ID: ", docRef.id);
+
                 } catch (e) {
                     console.error("Error adding document: ", e);
                 }

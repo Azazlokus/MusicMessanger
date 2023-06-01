@@ -94,3 +94,17 @@
     flex-direction: column;
     row-gap: 10px;
 }
+/*Styles for btn profile*/
+.add__btn, .edit__btn{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 30px;
+}
+.btn__to_add, .btn__to_edit{
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+}
