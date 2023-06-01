@@ -19,3 +19,13 @@ export interface IUserData {
     password: string,
     name: string
 }
+
+export interface IMessage {
+    user: IUser,
+    message: string,
+    createdAt: string
+}
+
+export interface IUsers {
+    user: IUser
+}

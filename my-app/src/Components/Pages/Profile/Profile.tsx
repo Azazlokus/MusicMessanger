@@ -1,10 +1,8 @@
 import React from 'react';
 import Header from "../../UI/Header/Header";
 import './Profile.css';
-import Avatar from '../../../Img/ProfileAvatar.png';
-import PostList from "../../UI/Posts/PostList";
-import PostForm from "../../UI/Posts/PostForm";
 import {useAuth} from "../../Provider/useAuth";
+
 
 const Profile = () => {
     const [postVisiable, setPostVisiable] = React.useState(false)
@@ -86,8 +84,8 @@ const Profile = () => {
                 {
                     postVisiable && (
                         <div className={'profile__post_container'}>
-                            <PostForm/>
-                            <PostList/>
+                            {/*<PostForm/>*/}
+                            {/*<PostList/>*/}
                         </div>
                     )
                 }

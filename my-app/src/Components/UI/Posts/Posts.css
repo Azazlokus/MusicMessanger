@@ -38,7 +38,7 @@
 .postlist__container{
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     row-gap: 20px;
     height: 100%;
 }
@@ -50,7 +50,6 @@
     display: flex;
     flex-direction: column;
     row-gap: 20px;
-    height: 820px;
     border-radius: 20px;
     padding: 20px 40px 20px 40px;
 }

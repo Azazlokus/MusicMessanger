@@ -46,6 +46,7 @@ const Auth = () => {
                 await updateProfile(res.user,{
                     displayName: userData.name
                 })
+
             }
             catch (error) {
                 alert('Error')

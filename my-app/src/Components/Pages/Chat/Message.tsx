@@ -1,24 +1,63 @@
-import React from 'react';
+import React, {FC, MouseEvent} from 'react';
+import {addDoc, collection, onSnapshot} from 'firebase/firestore'
 import './Chat.css';
+import {useAuth} from "../../Provider/useAuth";
+import {IMessage} from "../../../Type";
 
-const Message = () => {
+const Message:FC = () => {
+    const {base, user} = useAuth()
+    const [messages, setMessages] = React.useState<IMessage[]>([])
+    const [message, setMessage] = React.useState('')
+
+    React.useEffect(() => {
+        const unsub = onSnapshot(collection(base, 'massages'), doc => {
+            const arr:IMessage[] = []
+            doc.forEach((d: any) => {
+                arr.push(d.data())
+            })
+
+            setMessages(arr.sort((a,b) => parseInt(a.createdAt) - parseInt(b.createdAt)))
+        })
+
+        return () => {
+            unsub()
+        }
+    }, [])
+
+    const addMassage = async (e: MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault()
+        try {
+            const docRef = await addDoc(collection(base, 'massages'), {
+                user,
+                message,
+                createdAt: Date.now()
+            })
+        } catch (e: any) {
+
+        }
+        setMessage('');
+
+    }
+
     return (
         <div className="chat-page">
             <div className="chat-header">
 
             </div>
             <div className="chat-body">
-                <div className="message sender-message">
-                    <div className={'msg__item'}>
-                        <div className={'msg__item_img'}>
-                            <img src={''} alt={'User Avatar'} className={'msg__item_avatar'}/>
+                {messages.map((msg, index) => (
+                    <div key={msg.createdAt} style={msg.user._id === user?._id ? {alignItems: 'flex-end'} : {}} className="message sender-message">
+                        <div className={'msg__item'}>
+                            <div className={'msg__item_img'}>
+                                <img src={msg.user.avatar} alt={'User Avatar'} className={'msg__item_avatar'}/>
+                            </div>
+
+                            <h1 className={'msg__item_name'}>{msg.user.name}</h1>
                         </div>
 
-                        <h1 className={'msg__item_name'}>User</h1>
+                        <div className="message-text">{msg.message}</div>
                     </div>
-
-                    <div className="message-text">massage</div>
-                </div>
+                ))}
 
 
             </div>
@@ -26,10 +65,13 @@ const Message = () => {
                 <form className="message-form">
                     <input
                         maxLength={40}
+                        onChange={e => setMessage(e.target.value)}
+                        value={message}
                         type="text"
                         className="message-input"
                         placeholder="Введите сообщение"/>
                     <button
+                        onClick={addMassage}
                         className="send-button">Отправить
                     </button>
                 </form>
