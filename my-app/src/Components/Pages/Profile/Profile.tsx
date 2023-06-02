@@ -3,7 +3,8 @@ import Header from "../../UI/Header/Header";
 import './Profile.css';
 import {useAuth} from "../../Provider/useAuth";
 import {Navigate} from "react-router-dom";
-import {doc, updateDoc} from 'firebase/firestore'
+import {doc, updateDoc, getDoc} from 'firebase/firestore'
+import {IUser} from "../../../Type";
 
 
 
@@ -12,20 +13,28 @@ const Profile = () => {
     const [musicVisiable, setMusicVisiable] = React.useState(false)
     const [photoVisiable, setPhotoVisiable] = React.useState(false)
 
-    const {user, users, base} = useAuth()
+    const {user, users, base, setUser} = useAuth()
     const userId = window.location.pathname.split('/id:').pop();
     const currentUser = users.find((usr) => usr._id === userId);
     const userProfile = currentUser && currentUser._id !== user?._id ? currentUser : user;
-    
+
     const handleFollow = async () => {
         if (user !== null) {
             // Обновление массива follow
             const userRef = doc(base, 'users', user._id);
             await updateDoc(userRef, {
-                follow: [...user.follow, currentUser],
+                follow: [...user.follow, userId],
             });
+
+            // Обновление данных пользователя
+            const updatedUserSnapshot = await getDoc(userRef);
+            const updatedUser = updatedUserSnapshot.data() as IUser; // Преобразование типа данных
+
+            if (updatedUser) {
+                setUser(updatedUser);
+            }
         }
-    }
+    };
 
     if (!userProfile) {
         return <Navigate to="/news" replace />;

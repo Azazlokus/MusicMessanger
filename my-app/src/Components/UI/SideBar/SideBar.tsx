@@ -1,9 +1,10 @@
 import React, {FC} from 'react';
 import './SideBar.css';
 import {useAuth} from "../../Provider/useAuth";
-import {collection, onSnapshot} from "firebase/firestore";
+import {collection, onSnapshot, getDocs, query, where} from "firebase/firestore";
 import {IUser} from "../../../Type";
 import {Link} from "react-router-dom";
+
 
 const SideBar:FC = () => {
     const {users, setUsers, base, user, gAuth} = useAuth()
@@ -36,17 +37,29 @@ const SideBar:FC = () => {
             unsub()
         }
     }, [])
+
+    let followArray:[] = []; // Объявляем переменную followArray перед функцией
+
+
+
     return (
         <div className={'sidebar__container'}>
             <div className={'sidebar__follow'}>
                 <h1 className={'sidebar__follow_title'}>following</h1>
                 <ul className={'sidebar__follow_list'}>
-                    {user && user.follow.length > 0 ? user.follow.map(followers => (
-                        <li key={followers._id} className={'sidebar__follow_item'}>
-                            <img src={followers.avatar} alt={'Avatar'} className={'sidebar__follow_avatar'}/>
-                            <h1 className={'sidebar__follow_name'}>{followers.name}</h1>
-                        </li>
-                    )): <></>}
+                    {user && user.follow.length > 0 && user.follow.map(followId => {
+                        const followedUser = users.find(usr => usr._id === followId);
+                        if (followedUser) {
+                            return (
+                                <li key={followedUser._id} className={'sidebar__follow_item'}>
+                                    <img src={followedUser.avatar} alt={'Avatar'} className={'sidebar__follow_avatar'}/>
+                                    <h1 className={'sidebar__follow_name'}>{followedUser.name}</h1>
+                                </li>
+                            );
+                        }
+                        return null;
+                    })}
+
                 </ul>
             </div>
 
@@ -83,3 +96,11 @@ const SideBar:FC = () => {
 };
 
 export default SideBar;
+
+
+/*
+<li key={followers._id} className={'sidebar__follow_item'}>
+    <img src={followers.avatar} alt={'Avatar'} className={'sidebar__follow_avatar'}/>
+    <h1 className={'sidebar__follow_name'}>{followers.name}</h1>
+</li>
+ */
