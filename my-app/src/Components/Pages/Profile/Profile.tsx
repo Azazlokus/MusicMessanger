@@ -22,14 +22,24 @@ const Profile = () => {
 
     const handleFollow = async () => {
         if (user !== null && userId) {
-            // Обновление массива follow
-            const userRef = doc(base, 'users', user._id);
-            await updateDoc(userRef, {
-                follow: [...user.follow, userId],
-            });
+            // Проверяем, следит ли пользователь уже за выбранным пользователем
+            const isFollowing = user.follow.includes(userId);
 
+            if (isFollowing) {
+                // Если пользователь уже следит, удаляем его из массива follow
+                const updatedFollow = user.follow.filter(id => id !== userId);
+                const userRef = doc(base, 'users', user._id);
+                await updateDoc(userRef, {
+                    follow: updatedFollow,
+                });
+            } else {
+                // Если пользователь не следит, добавляем его в массив follow
+                const userRef = doc(base, 'users', user._id);
+                await updateDoc(userRef, {
+                    follow: [...user.follow, userId],
+                });
+            }
         }
-
     };
 
     React.useEffect(() => {
@@ -113,8 +123,11 @@ const Profile = () => {
                         {userId !== '/profile' ? (
                             <div className={'add__btn'}>
                                 <button
-                                    onClick={(handleFollow)}
-                                    className={'btn__to_add'}>Follow</button>
+                                    onClick={handleFollow}
+                                    className={'btn__to_add'}
+                                >
+                                    {userId && user?.follow.includes(userId) ? 'Unfollow' : 'Follow'}
+                                </button>
                             </div>
                         ): (
                             <div className={'edit__btn'}>
