@@ -171,3 +171,17 @@
     cursor: pointer;
     padding: 5px 10px;
 }
+.link_chatId{
+    text-decoration: none;
+}
+
+.none__chat_container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.none__chat_bg{
+
+}

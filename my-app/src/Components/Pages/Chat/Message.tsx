@@ -3,11 +3,13 @@ import {addDoc, collection, onSnapshot} from 'firebase/firestore'
 import './Chat.css';
 import {useAuth} from "../../Provider/useAuth";
 import {IMessage} from "../../../Type";
+import NoneChatBg from '../../../Img/NoneChatBg.png';
 
 const Message:FC = () => {
     const {base, user} = useAuth()
     const [messages, setMessages] = React.useState<IMessage[]>([])
     const [message, setMessage] = React.useState('')
+    const chatId = window.location.pathname.split('/id:').pop();
 
     React.useEffect(() => {
         const unsub = onSnapshot(collection(base, 'massages'), doc => {
@@ -40,57 +42,67 @@ const Message:FC = () => {
         setMessage('');
 
     }
-
+    
     return (
-        <div className="chat-page">
-            <div className="chat-header">
-                <div className="chat-header-content">
-                    <img className={'chat-header-avatar'} src={user?.avatar} alt={'User avatar'}/>
-                    <div className={'chat-header-info'}>
-                        <h1 className={'chat-header-name'}>{user?.name}</h1>
-                        <p className={'chat-header-online'}>Online</p>
-                    </div>
+        <>
+            {chatId === '/chat' ?
+                (<div className={'none__chat_container'}>
+                        <img className={'none__chat_bg'} src={NoneChatBg} alt={'None Chat Background'}/>
                 </div>
-
-                <div className="chat-header-settings">
-                    <span className="chat-settings-menu"></span>
-                    <span className="chat-settings-menu"></span>
-                    <span className="chat-settings-menu"></span>
-                </div>
-            </div>
-            <div className="chat-body">
-                {messages.map((msg, index) => (
-                    <div key={msg.createdAt} style={msg.user._id === user?._id ? {alignItems: 'flex-end'} : {}} className="message sender-message">
-                        <div className={'msg__item'}>
-                            <div className={'msg__item_img'}>
-                                <img src={msg.user.avatar} alt={'User Avatar'} className={'msg__item_avatar'}/>
+                )
+            :   (
+                    <div className="chat-page">
+                        <div className="chat-header">
+                            <div className="chat-header-content">
+                                <img className={'chat-header-avatar'} src={user?.avatar} alt={'User avatar'}/>
+                                <div className={'chat-header-info'}>
+                                    <h1 className={'chat-header-name'}>{user?.name}</h1>
+                                    <p className={'chat-header-online'}>Online</p>
+                                </div>
                             </div>
 
-                            <h1 className={'msg__item_name'}>{msg.user.name}</h1>
+                            <div className="chat-header-settings">
+                                <span className="chat-settings-menu"></span>
+                                <span className="chat-settings-menu"></span>
+                                <span className="chat-settings-menu"></span>
+                            </div>
                         </div>
+                        <div className="chat-body">
+                            {messages.map((msg, index) => (
+                                <div key={msg.createdAt} style={msg.user._id === user?._id ? {alignItems: 'flex-end'} : {}} className="message sender-message">
+                                    <div className={'msg__item'}>
+                                        <div className={'msg__item_img'}>
+                                            <img src={msg.user.avatar} alt={'User Avatar'} className={'msg__item_avatar'}/>
+                                        </div>
 
-                        <div className="message-text">{msg.message}</div>
+                                        <h1 className={'msg__item_name'}>{msg.user.name}</h1>
+                                    </div>
+
+                                    <div className="message-text">{msg.message}</div>
+                                </div>
+                            ))}
+
+
+                        </div>
+                        <div className="chat-footer">
+                            <form className="message-form">
+                                <input
+                                    maxLength={40}
+                                    onChange={e => setMessage(e.target.value)}
+                                    value={message}
+                                    type="text"
+                                    className="message-input"
+                                    placeholder="Введите сообщение"/>
+                                <button
+                                    onClick={addMassage}
+                                    className="send-button">Отправить
+                                </button>
+                            </form>
+                        </div>
                     </div>
-                ))}
-
-
-            </div>
-            <div className="chat-footer">
-                <form className="message-form">
-                    <input
-                        maxLength={40}
-                        onChange={e => setMessage(e.target.value)}
-                        value={message}
-                        type="text"
-                        className="message-input"
-                        placeholder="Введите сообщение"/>
-                    <button
-                        onClick={addMassage}
-                        className="send-button">Отправить
-                    </button>
-                </form>
-            </div>
-        </div>
+                )
+            }
+        </>
     );
 };
 
