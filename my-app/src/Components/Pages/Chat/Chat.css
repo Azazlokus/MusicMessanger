@@ -67,6 +67,37 @@
     text-align: center;
     padding: 10px;
     margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.chat-header-content{
+    display: flex;
+    column-gap: 20px;
+}
+.chat-header-avatar{
+    width: 60px;
+    height: 60px;
+}
+.chat-header-name{
+    font-size: 30px;
+}
+.chat-header-info{
+    display: flex;
+    flex-direction: column;
+}
+.chat-header-online{
+    align-self: flex-start;
+}
+.chat-header-settings{
+    display: flex;
+    column-gap: 5px;
+}
+.chat-settings-menu{
+    width: 10px;
+    height: 10px;
+    background-color: #333333;
+    border-radius: 50px;
 }
 
 .chat-body {

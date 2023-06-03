@@ -27,11 +27,13 @@ const Message:FC = () => {
     const addMassage = async (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
         try {
-            const docRef = await addDoc(collection(base, 'massages'), {
-                user,
-                message,
-                createdAt: Date.now()
-            })
+            if (message !== ''){
+                const docRef = await addDoc(collection(base, 'massages'), {
+                    user,
+                    message,
+                    createdAt: Date.now()
+                })
+            }
         } catch (e: any) {
 
         }
@@ -42,7 +44,19 @@ const Message:FC = () => {
     return (
         <div className="chat-page">
             <div className="chat-header">
+                <div className="chat-header-content">
+                    <img className={'chat-header-avatar'} src={user?.avatar} alt={'User avatar'}/>
+                    <div className={'chat-header-info'}>
+                        <h1 className={'chat-header-name'}>{user?.name}</h1>
+                        <p className={'chat-header-online'}>Online</p>
+                    </div>
+                </div>
 
+                <div className="chat-header-settings">
+                    <span className="chat-settings-menu"></span>
+                    <span className="chat-settings-menu"></span>
+                    <span className="chat-settings-menu"></span>
+                </div>
             </div>
             <div className="chat-body">
                 {messages.map((msg, index) => (

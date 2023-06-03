@@ -29,7 +29,7 @@ const PostForm:FC = () => {
     return (
         <div>
             <div className={'postform__container'}>
-                <button className={'postform__create'}>create</button>
+
 
                 <input
                     value={content}

@@ -5,7 +5,7 @@ export interface IUser {
     _id: string
     avatar: string
     name: string
-    follow: []
+    follow: string[]
 }
 
 export interface IPost {

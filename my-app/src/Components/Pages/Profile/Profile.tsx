@@ -5,6 +5,8 @@ import {useAuth} from "../../Provider/useAuth";
 import {Navigate} from "react-router-dom";
 import {doc, updateDoc, getDoc} from 'firebase/firestore'
 import {IUser} from "../../../Type";
+import PostForm from "../../UI/Posts/PostForm";
+import PostList from "../../UI/Posts/PostList";
 
 
 
@@ -19,22 +21,32 @@ const Profile = () => {
     const userProfile = currentUser && currentUser._id !== user?._id ? currentUser : user;
 
     const handleFollow = async () => {
-        if (user !== null) {
+        if (user !== null && userId) {
             // Обновление массива follow
             const userRef = doc(base, 'users', user._id);
             await updateDoc(userRef, {
                 follow: [...user.follow, userId],
             });
 
-            // Обновление данных пользователя
-            const updatedUserSnapshot = await getDoc(userRef);
-            const updatedUser = updatedUserSnapshot.data() as IUser; // Преобразование типа данных
-
-            if (updatedUser) {
-                setUser(updatedUser);
-            }
         }
+
     };
+
+    React.useEffect(() => {
+        const updateUser = async () => {
+            if (user) {
+                const userRef = doc(base, 'users', user._id);
+                const userSnapshot = await getDoc(userRef);
+                const fetchedUser = userSnapshot.data() as IUser;
+                if (fetchedUser) {
+                    setUser(fetchedUser);
+                }
+            }
+        };
+
+        updateUser();
+    }, []);
+
 
     if (!userProfile) {
         return <Navigate to="/news" replace />;
@@ -100,7 +112,9 @@ const Profile = () => {
                         </div>
                         {userId !== '/profile' ? (
                             <div className={'add__btn'}>
-                                <button onClick={handleFollow} className={'btn__to_add'}>Follow</button>
+                                <button
+                                    onClick={(handleFollow)}
+                                    className={'btn__to_add'}>Follow</button>
                             </div>
                         ): (
                             <div className={'edit__btn'}>
@@ -127,8 +141,8 @@ const Profile = () => {
                 {
                     postVisiable && (
                         <div className={'profile__post_container'}>
-                            {/*<PostForm/>*/}
-                            {/*<PostList/>*/}
+                            <PostForm/>
+                            <PostList/>
                         </div>
                     )
                 }

@@ -1,15 +1,16 @@
 import React, {FC} from 'react';
 import './SideBar.css';
 import {useAuth} from "../../Provider/useAuth";
-import {collection, onSnapshot, getDocs, query, where} from "firebase/firestore";
+import {collection, doc, getDoc, onSnapshot} from "firebase/firestore";
 import {IUser} from "../../../Type";
 import {Link} from "react-router-dom";
 
 
-const SideBar:FC = () => {
+const SideBar: FC = () => {
     const {users, setUsers, base, user, gAuth} = useAuth()
     const [userName, setUserName] = React.useState<string>('')
     const [searchResults, setSearchResults] = React.useState<IUser[]>([]);
+    const [followArr, setFollowArr] = React.useState<string[]>([])
 
     const userSearch = (e: any) => {
         const searchString = e.target.value.toLowerCase();
@@ -23,23 +24,35 @@ const SideBar:FC = () => {
 
     React.useEffect(() => {
         const unsub = onSnapshot(collection(base, 'users'), doc => {
-            const arr:IUser[] = []
-            doc.forEach((d:any) => {
+            const arr: IUser[] = [];
+            doc.forEach((d: any) => {
                 arr.push(d.data())
-            })
-            arr.map(ar => {
 
-            })
-            setUsers(arr.sort((a,b) => parseInt(a._id) - parseInt(b._id)))
-        })
+            });
+
+            setUsers(arr.sort((a, b) => parseInt(a._id) - parseInt(b._id)));
+        });
+
 
         return () => {
-            unsub()
-        }
-    }, [])
+            unsub();
+        };
+    }, []);
 
-    let followArray:[] = []; // Объявляем переменную followArray перед функцией
+    React.useEffect(() => {
+        const followArray = async () => {
+            if (user) {
+                const userRef = doc(base, 'users', user._id);
+                const userSnapshot = await getDoc(userRef);
+                const fetchedUser = userSnapshot.data() as IUser;
+                if (fetchedUser) {
+                    setFollowArr((prevFollowArr) => [...prevFollowArr, ...fetchedUser.follow]);
+                }
+            }
+        };
 
+        followArray();
+    }, []);
 
 
     return (
@@ -47,32 +60,38 @@ const SideBar:FC = () => {
             <div className={'sidebar__follow'}>
                 <h1 className={'sidebar__follow_title'}>following</h1>
                 <ul className={'sidebar__follow_list'}>
-                    {user && user.follow.length > 0 && user.follow.map(followId => {
-                        const followedUser = users.find(usr => usr._id === followId);
-                        if (followedUser) {
-                            return (
-                                <li key={followedUser._id} className={'sidebar__follow_item'}>
-                                    <img src={followedUser.avatar} alt={'Avatar'} className={'sidebar__follow_avatar'}/>
-                                    <h1 className={'sidebar__follow_name'}>{followedUser.name}</h1>
-                                </li>
-                            );
-                        }
-                        return null;
-                    })}
-
+                    {user &&
+                        followArr.length > 0 &&
+                        followArr.map((followedUserId) => {
+                            const followedUser = users.find((usr) => usr._id === followedUserId);
+                            if (followedUser) {
+                                return (
+                                    <li key={followedUser._id} className={'sidebar__follow_item'}>
+                                        <img
+                                            src={followedUser.avatar}
+                                            alt={'Avatar'}
+                                            className={'sidebar__follow_avatar'}
+                                        />
+                                        <h1 className={'sidebar__follow_name'}>{followedUser.name}</h1>
+                                    </li>
+                                );
+                            }
+                            return null;
+                        })}
                 </ul>
             </div>
 
             <div className={'sidebar__nav'}>
+                <h1 style={{alignSelf: 'center', fontSize: '20px', fontWeight: '500'}}>Users</h1>
                 <input
                     onKeyUp={userSearch}
                     value={userName}
-                    onChange={e=> setUserName(e.target.value)}
+                    onChange={e => setUserName(e.target.value)}
                     className={'sidebar__users_input'}/>
                 <ul className={'sidebar__users'}>
                     {searchResults.length > 0 ? (
-                        searchResults.slice(0,6).map(usr => (
-                            <Link key={usr._id} to={`/profile/id:${usr._id}`}>
+                        searchResults.slice(0, 6).map(usr => (
+                            <Link className={'link__online'} key={usr._id} to={`/profile/id:${usr._id}`}>
                                 <li className={'sidebar__follow_item'}>
                                     <img src={usr.avatar} alt={'Avatar'} className={'sidebar__follow_avatar'}/>
                                     <h1 className={'sidebar__follow_name'}>{usr.name}</h1>
@@ -81,8 +100,8 @@ const SideBar:FC = () => {
                         ))
                     ) : (
                         users.slice(0, 6).map(usr => (
-                            <Link key={usr._id} to={`/profile/id:${usr._id}`}>
-                                <li  className={'sidebar__follow_item'}>
+                            <Link className={'link__online'} key={usr._id} to={`/profile/id:${usr._id}`}>
+                                <li className={'sidebar__follow_item'}>
                                     <img src={usr.avatar} alt={'Avatar'} className={'sidebar__follow_avatar'}/>
                                     <h1 className={'sidebar__follow_name'}>{usr.name}</h1>
                                 </li>
