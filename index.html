@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>KITTY</title>
+<link rel="stylesheet" href="ui-components/gsui.css"/>
+<link rel="stylesheet" href="ui-components/gsuiIcon/gsuiIcon.css"/>
+<link rel="stylesheet" href="ui-components/gsuiDAW/gsuiDAW.colors.default.css"/>
+<link rel="stylesheet" href="ui-components/gsuiDAW/gsuiDAW.css"/>
+<link rel="stylesheet" href="ui-components/gsuiDAW/gsuiDAW-btn.css"/>
+<link rel="stylesheet" href="ui-components/gsuiDAW/gsuiDAW-cmp.css"/>
+<link rel="stylesheet" href="ui-components/gsuiDAW/gsuiDAW-dropdown.css"/>
+<link rel="stylesheet" href="ui-components/gsuiDAW/gsuiDAW-area-user.css"/>
+<link rel="stylesheet" href="ui-components/gsuiDAW/gsuiDAW-area-save.css"/>
+<link rel="stylesheet" href="ui-components/gsuiDAW/gsuiDAW-area-ctrl.css"/>
+<link rel="stylesheet" href="ui-components/gsuiDAW/gsuiDAW-area-time.css"/>
+<link rel="stylesheet" href="ui-components/gsuiDAW/gsuiDAW-area-hist.css"/>
+<link rel="stylesheet" href="ui-components/gsuiDAW/gsuiDAW-area-wins.css"/>
+<link rel="stylesheet" href="ui-components/gsuiDAW/gsuiDAW-area-help.css"/>
+<link rel="stylesheet" href="ui-components/gsuiDAW/gsuiDAW-area-vers.css"/>
+<link rel="stylesheet" href="ui-components/gsuiDAW/gsuiDAW-popup-open.css"/>
+<link rel="stylesheet" href="ui-components/gsuiDAW/gsuiDAW-popup-about.css"/>
+<link rel="stylesheet" href="ui-components/gsuiDAW/gsuiDAW-popup-tempo.css"/>
+<link rel="stylesheet" href="ui-components/gsuiDAW/gsuiDAW-popup-export.css"/>
+<link rel="stylesheet" href="ui-components/gsuiDAW/gsuiDAW-popup-cookies.css"/>
+<link rel="stylesheet" href="ui-components/gsuiDAW/gsuiDAW-popup-settings.css"/>
+<link rel="stylesheet" href="ui-components/gsuiDAW/gsuiDAW-popup-shortcuts.css"/>
+<link rel="stylesheet" href="ui-components/gsuiSpectrum/gsuiSpectrum.css"/>
+<link rel="stylesheet" href="ui-components/gsuiDragshield/gsuiDragshield.css"/>
+<link rel="stylesheet" href="ui-components/gsuiEnvelopeGraph/gsuiEnvelopeGraph.css"/>
+<link rel="stylesheet" href="ui-components/gsuiEnvelope/gsuiEnvelope.colors.default.css"/>
+<link rel="stylesheet" href="ui-components/gsuiEnvelope/gsuiEnvelope.css"/>
+<link rel="stylesheet" href="ui-components/gsuiLFO/gsuiLFO.colors.default.css"/>
+<link rel="stylesheet" href="ui-components/gsuiLFO/gsuiLFO.css"/>
+<link rel="stylesheet" href="ui-components/gsuiDrumrows/gsuiDrumrows.colors.default.css"/>
+<link rel="stylesheet" href="ui-components/gsuiDrumrows/gsuiDrumrows.css"/>
+<link rel="stylesheet" href="ui-components/gsuiDrums/gsuiDrums.colors.default.css"/>
+<link rel="stylesheet" href="ui-components/gsuiDrums/gsuiDrums.css"/>
+<link rel="stylesheet" href="ui-components/gsuiClock/gsuiClock.colors.default.css"/>
+<link rel="stylesheet" href="ui-components/gsuiClock/gsuiClock.css"/>
+<link rel="stylesheet" href="ui-components/gsuiChannel/gsuiChannel.colors.default.css"/>
+<link rel="stylesheet" href="ui-components/gsuiChannel/gsuiChannel.css"/>
+<link rel="stylesheet" href="ui-components/gsuiChannels/gsuiChannels.colors.default.css"/>
+<link rel="stylesheet" href="ui-components/gsuiChannels/gsuiChannels.css"/>
+<link rel="stylesheet" href="ui-components/gsuiCurves/gsuiCurves.css"/>
+<link rel="stylesheet" href="ui-components/gsuiEffects/gsuiEffects.css"/>
+<link rel="stylesheet" href="ui-components/gsuiFxFilter/gsuiFxFilter.colors.default.css"/>
+<link rel="stylesheet" href="ui-components/gsuiFxFilter/gsuiFxFilter.css"/>
+<link rel="stylesheet" href="ui-components/gsuiReorder/gsuiReorder.css"/>
+<link rel="stylesheet" href="ui-components/gsuiDragline/gsuiDragline.css"/>
+<link rel="stylesheet" href="ui-components/gsuiBeatlines/gsuiBeatlines.css"/>
+<link rel="stylesheet" href="ui-components/gsuiBlocksManager/gsuiBlocksManager.css"/>
+<link rel="stylesheet" href="ui-components/gsuiPatternroll/gsuiPatternroll.css"/>
+<link rel="stylesheet" href="ui-components/gsuiPianoroll/gsuiPianoroll.css"/>
+<link rel="stylesheet" href="ui-components/gsuiPianoroll/gsuiPianoroll-block.css"/>
+<link rel="stylesheet" href="ui-components/gsuiKeys/gsuiKeys.colors.default.css"/>
+<link rel="stylesheet" href="ui-components/gsuiKeys/gsuiKeys.css"/>
+<link rel="stylesheet" href="ui-components/gsuiOscillator/gsuiOscillator.colors.default.css"/>
+<link rel="stylesheet" href="ui-components/gsuiOscillator/gsuiOscillator.css"/>
+<link rel="stylesheet" href="ui-components/gsuiPeriodicWave/gsuiPeriodicWave.css"/>
+<link rel="stylesheet" href="ui-components/gsuiSynthesizer/gsuiSynthesizer.colors.default.css"/>
+<link rel="stylesheet" href="ui-components/gsuiSynthesizer/gsuiSynthesizer.css"/>
+<link rel="stylesheet" href="ui-components/gsuiDotline/gsuiDotline.css"/>
+<link rel="stylesheet" href="ui-components/gsuiPanels/gsuiPanels.colors.default.css"/>
+<link rel="stylesheet" href="ui-components/gsuiPanels/gsuiPanels.css"/>
+<link rel="stylesheet" href="ui-components/gsuiPopup/gsuiPopup.colors.default.css"/>
+<link rel="stylesheet" href="ui-components/gsuiPopup/gsuiPopup.css"/>
+<link rel="stylesheet" href="ui-components/gsuiSlicer/gsuiSlicer.colors.default.css"/>
+<link rel="stylesheet" href="ui-components/gsuiSlicer/gsuiSlicer.css"/>
+<link rel="stylesheet" href="ui-components/gsuiSlider/gsuiSlider.css"/>
+<link rel="stylesheet" href="ui-components/gsuiSliderGroup/gsuiSliderGroup.colors.default.css"/>
+<link rel="stylesheet" href="ui-components/gsuiSliderGroup/gsuiSliderGroup.css"/>
+<link rel="stylesheet" href="ui-components/gsuiTimeline/gsuiTimeline.colors.default.css"/>
+<link rel="stylesheet" href="ui-components/gsuiTimeline/gsuiTimeline.css"/>
+<link rel="stylesheet" href="ui-components/gsuiTimewindow/gsuiTimewindow.colors.default.css"/>
+<link rel="stylesheet" href="ui-components/gsuiTimewindow/gsuiTimewindow.css"/>
+<link rel="stylesheet" href="ui-components/gsuiPatterns/gsuiPatterns.colors.default.css"/>
+<link rel="stylesheet" href="ui-components/gsuiPatterns/gsuiPatterns.css"/>
+<link rel="stylesheet" href="ui-components/gsuiPatterns/gsuiPatterns-synth.css"/>
+<link rel="stylesheet" href="ui-components/gsuiPatterns/gsuiPatterns-pattern.css"/>
+<link rel="stylesheet" href="ui-components/gsuiTrack/gsuiTrack.colors.default.css"/>
+<link rel="stylesheet" href="ui-components/gsuiTrack/gsuiTrack.css"/>
+<link rel="stylesheet" href="ui-components/gsuiWindows/gsuiWindow.colors.default.css"/>
+<link rel="stylesheet" href="ui-components/gsuiWindows/gsuiWindows.css"/>
+<link rel="stylesheet" href="ui-components/gsuiWindows/gsuiWindow.css"/>
+<link rel="stylesheet" href="assets/fonts/fonts.css"/>
+<link rel="stylesheet" href="src/css/reset.css"/>
+<link rel="stylesheet" href="src/css/loading.css"/>
+<link rel="stylesheet" href="src/css/popup.css"/>
+<link rel="stylesheet" href="src/css/window.css"/>
+<link rel="stylesheet" href="src/css/windows.css"/>
+</head>
+<body>
+<noscript id="noscript">Нужен JavaScript для запуска</noscript>
+<div id="loading">
+</div>
+<script>function lg( a ) { return console.log.apply( console, arguments ), a; }</script>
+<script src="src/checkBrowser.js"></script>
+<script src="api-client/gsapiClient.js"></script>
+<script src="daw-core/src/DAWCore.js"></script>
+<script src="daw-core/src/Buffers.js"></script>
+<script src="daw-core/src/BuffersSlices.js"></script>
+<script src="daw-core/src/LocalStorage.js"></script>
+<script src="daw-core/src/Destination.js"></script>
+<script src="daw-core/src/History.js"></script>
+<script src="daw-core/src/History.prototype.nameAction.js"></script>
+<script src="daw-core/src/Keys.js"></script>
+<script src="daw-core/src/Drums.js"></script>
+<script src="daw-core/src/Slices.js"></script>
+<script src="daw-core/src/Composition.js"></script>
+<script src="daw-core/src/Composition.epure.js"></script>
+<script src="daw-core/src/Composition.format.js"></script>
+<script src="daw-core/src/Composition.prototype.change.js"></script>
+<script src="daw-core/src/utils/addIfNotEmpty.js"></script>
+<script src="daw-core/src/utils/castToNumber.js"></script>
+<script src="daw-core/src/utils/composeUndo.js"></script>
+<script src="daw-core/src/utils/createUpdateDelete.js"></script>
+<script src="daw-core/src/utils/deepAssign.js"></script>
+<script src="daw-core/src/utils/deepCopy.js"></script>
+<script src="daw-core/src/utils/deepFreeze.js"></script>
+<script src="daw-core/src/utils/diffAssign.js"></script>
+<script src="daw-core/src/utils/isEmpty.js"></script>
+<script src="daw-core/src/utils/isntEmpty.js"></script>
+<script src="daw-core/src/utils/isObject.js"></script>
+<script src="daw-core/src/utils/jsonCopy.js"></script>
+<script src="daw-core/src/utils/mapCallbacks.js"></script>
+<script src="daw-core/src/utils/noop.js"></script>
+<script src="daw-core/src/utils/panningMerge.js"></script>
+<script src="daw-core/src/utils/panningMergeLR.js"></script>
+<script src="daw-core/src/utils/panningSplitLR.js"></script>
+<script src="daw-core/src/utils/plural.js"></script>
+<script src="daw-core/src/utils/trim2.js"></script>
+<script src="daw-core/src/utils/uniqueName.js"></script>
+<script src="daw-core/src/utils/uuid.js"></script>
+<script src="daw-core/src/json/composition.js"></script>
+<script src="daw-core/src/json/block.js"></script>
+<script src="daw-core/src/json/channel.js"></script>
+<script src="daw-core/src/json/channelMain.js"></script>
+<script src="daw-core/src/json/channels.js"></script>
+<script src="daw-core/src/json/drum.js"></script>
+<script src="daw-core/src/json/drumcut.js"></script>
+<script src="daw-core/src/json/drumrow.js"></script>
+<script src="daw-core/src/json/effects.filter.js"></script>
+<script src="daw-core/src/json/env.js"></script>
+<script src="daw-core/src/json/key.js"></script>
+<script src="daw-core/src/json/lfo.js"></script>
+<script src="daw-core/src/json/oscillator.js"></script>
+<script src="daw-core/src/json/synth.js"></script>
+<script src="daw-core/src/json/track.js"></script>
+<script src="daw-core/src/controllers/blocks.js"></script>
+<script src="daw-core/src/controllers/drumrows.js"></script>
+<script src="daw-core/src/controllers/drums.js"></script>
+<script src="daw-core/src/controllers/effects.js"></script>
+<script src="daw-core/src/controllers/keys.js"></script>
+<script src="daw-core/src/controllers/mixer.js"></script>
+<script src="daw-core/src/controllers/synth.js"></script>
+<script src="daw-core/src/controllers/tracks.js"></script>
+<script src="daw-core/src/controllers/slicer.js"></script>
+<script src="daw-core/src/controllersFx/filter.js"></script>
+<script src="daw-core/src/actions/common/patternOpenedByType.js"></script>
+<script src="daw-core/src/actions/common/calcNewDuration.js"></script>
+<script src="daw-core/src/actions/common/calcNewKeysDuration.js"></script>
+<script src="daw-core/src/actions/common/createUniqueName.js"></script>
+<script src="daw-core/src/actions/common/getDrumrowName.js"></script>
+<script src="daw-core/src/actions/common/getNextIdOf.js"></script>
+<script src="daw-core/src/actions/common/getNextOrderOf.js"></script>
+<script src="daw-core/src/actions/common/toggleSolo.js"></script>
+<script src="daw-core/src/actions/common/updatePatternDuration.js"></script>
+<script src="daw-core/src/actions/addBlock.js"></script>
+<script src="daw-core/src/actions/addChannel.js"></script>
+<script src="daw-core/src/actions/addDrumcuts.js"></script>
+<script src="daw-core/src/actions/addDrumrow.js"></script>
+<script src="daw-core/src/actions/addDrums.js"></script>
+<script src="daw-core/src/actions/addEffect.js"></script>
+<script src="daw-core/src/actions/addKey.js"></script>
+<script src="daw-core/src/actions/addOscillator.js"></script>
+<script src="daw-core/src/actions/addPatternDrums.js"></script>
+<script src="daw-core/src/actions/addPatternKeys.js"></script>
+<script src="daw-core/src/actions/addPatternSlices.js"></script>
+<script src="daw-core/src/actions/addSynth.js"></script>
+<script src="daw-core/src/actions/changeChannel.js"></script>
+<script src="daw-core/src/actions/changeDrumrow.js"></script>
+<script src="daw-core/src/actions/changeDrumrowPattern.js"></script>
+<script src="daw-core/src/actions/changeDrumsProps.js"></script>
+<script src="daw-core/src/actions/changeEffect.js"></script>
+<script src="daw-core/src/actions/changeEnv.js"></script>
+<script src="daw-core/src/actions/changeKeysProps.js"></script>
+<script src="daw-core/src/actions/changeLFO.js"></script>
+<script src="daw-core/src/actions/changeLoop.js"></script>
+<script src="daw-core/src/actions/changeOscillator.js"></script>
+<script src="daw-core/src/actions/changePatternBufferInfo.js"></script>
+<script src="daw-core/src/actions/changePatternSlices.js"></script>
+<script src="daw-core/src/actions/changeTempo.js"></script>
+<script src="daw-core/src/actions/clonePattern.js"></script>
+<script src="daw-core/src/actions/cloneSelectedKeys.js"></script>
+<script src="daw-core/src/actions/closePattern.js"></script>
+<script src="daw-core/src/actions/cropEndBlocks.js"></script>
+<script src="daw-core/src/actions/cropEndKeys.js"></script>
+<script src="daw-core/src/actions/cropStartBlocks.js"></script>
+<script src="daw-core/src/actions/dropBuffers.js"></script>
+<script src="daw-core/src/actions/duplicateSelectedBlocks.js"></script>
+<script src="daw-core/src/actions/moveBlocks.js"></script>
+<script src="daw-core/src/actions/moveKeys.js"></script>
+<script src="daw-core/src/actions/openPattern.js"></script>
+<script src="daw-core/src/actions/openSynth.js"></script>
+<script src="daw-core/src/actions/redirectChannel.js"></script>
+<script src="daw-core/src/actions/redirectKey.js"></script>
+<script src="daw-core/src/actions/redirectPatternBuffer.js"></script>
+<script src="daw-core/src/actions/redirectPatternKeys.js"></script>
+<script src="daw-core/src/actions/redirectPatternSlices.js"></script>
+<script src="daw-core/src/actions/redirectSynth.js"></script>
+<script src="daw-core/src/actions/removeBlocks.js"></script>
+<script src="daw-core/src/actions/removeChannel.js"></script>
+<script src="daw-core/src/actions/removeDrumcuts.js"></script>
+<script src="daw-core/src/actions/removeDrumrow.js"></script>
+<script src="daw-core/src/actions/removeDrums.js"></script>
+<script src="daw-core/src/actions/removeEffect.js"></script>
+<script src="daw-core/src/actions/removeKeys.js"></script>
+<script src="daw-core/src/actions/removeOscillator.js"></script>
+<script src="daw-core/src/actions/removePattern.js"></script>
+<script src="daw-core/src/actions/removeSynth.js"></script>
+<script src="daw-core/src/actions/renameChannel.js"></script>
+<script src="daw-core/src/actions/renameComposition.js"></script>
+<script src="daw-core/src/actions/renamePattern.js"></script>
+<script src="daw-core/src/actions/renameSynth.js"></script>
+<script src="daw-core/src/actions/renameTrack.js"></script>
+<script src="daw-core/src/actions/reorderChannel.js"></script>
+<script src="daw-core/src/actions/reorderDrumrow.js"></script>
+<script src="daw-core/src/actions/reorderOscillator.js"></script>
+<script src="daw-core/src/actions/reorderPattern.js"></script>
+<script src="daw-core/src/actions/selectBlocks.js"></script>
+<script src="daw-core/src/actions/selectKeys.js"></script>
+<script src="daw-core/src/actions/toggleChannel.js"></script>
+<script src="daw-core/src/actions/toggleDrumrow.js"></script>
+<script src="daw-core/src/actions/toggleEffect.js"></script>
+<script src="daw-core/src/actions/toggleEnv.js"></script>
+<script src="daw-core/src/actions/toggleLFO.js"></script>
+<script src="daw-core/src/actions/toggleSoloDrumrow.js"></script>
+<script src="daw-core/src/actions/toggleSoloTrack.js"></script>
+<script src="daw-core/src/actions/toggleTrack.js"></script>
+<script src="daw-core/src/actions/unselectAllBlocks.js"></script>
+<script src="daw-core/src/actions/unselectAllKeys.js"></script>
+<script src="daw-core/src/actions/unselectBlock.js"></script>
+<script src="daw-core/src/actions/unselectKey.js"></script>
+<script src="daw-core/src/prototype/abortWAVExport.js"></script>
+<script src="daw-core/src/prototype/addComposition.js"></script>
+<script src="daw-core/src/prototype/addCompositionByBlob.js"></script>
+<script src="daw-core/src/prototype/addCompositionByJSON.js"></script>
+<script src="daw-core/src/prototype/addCompositionByURL.js"></script>
+<script src="daw-core/src/prototype/addCompositionsFromLocalStorage.js"></script>
+<script src="daw-core/src/prototype/addNewComposition.js"></script>
+<script src="daw-core/src/prototype/closeComposition.js"></script>
+<script src="daw-core/src/prototype/deleteComposition.js"></script>
+<script src="daw-core/src/prototype/dropAudioFiles.js"></script>
+<script src="daw-core/src/prototype/exportCompositionToJSON.js"></script>
+<script src="daw-core/src/prototype/exportCompositionToWAV.js"></script>
+<script src="daw-core/src/prototype/liveChangeChannel.js"></script>
+<script src="daw-core/src/prototype/liveChangeEffect.js"></script>
+<script src="daw-core/src/prototype/liveChangeSynth.js"></script>
+<script src="daw-core/src/prototype/newComposition.js"></script>
+<script src="daw-core/src/prototype/openComposition.js"></script>
+<script src="daw-core/src/prototype/saveComposition.js"></script>
+<script src="components/gsDrums/gsDrums.js"></script>
+<script src="components/gsEffects/gsEffects.js"></script>
+<script src="components/gsMixer/gsMixer.js"></script>
+<script src="components/gsPatternroll/gsPatternroll.js"></script>
+<script src="components/gsPatterns/gsPatterns.js"></script>
+<script src="components/gsPianoroll/gsPianoroll.js"></script>
+<script src="components/gsSynth/gsSynth.js"></script>
+<script src="components/gsSlicer/gsSlicer.js"></script>
+<script src="wa-components/gswaLFO/gswaLFO.js"></script>
+<script src="wa-components/gswaEnvelope/gswaEnvelope.js"></script>
+<script src="wa-components/gswaMixer/gswaMixer.js"></script>
+<script src="wa-components/gswaSynth/gswaSynth.js"></script>
+<script src="wa-components/gswaKeysScheduler/gswaKeysScheduler.js"></script>
+<script src="wa-components/gswaDrumsScheduler/gswaDrumsScheduler.js"></script>
+<script src="wa-components/gswaSlicer/gswaSlicer.js"></script>
+<script src="wa-components/gswaBPMTap/gswaBPMTap.js"></script>
+<script src="wa-components/gswaEffects/gswaEffects.js"></script>
+<script src="wa-components/gswaFxFilter/gswaFxFilter.js"></script>
+<script src="wa-components/gswaDrumrows/gswaDrumrows.js"></script>
+<script src="wa-components/gswaScheduler/gswaScheduler.js"></script>
+<script src="wa-components/gswaEncodeWAV/gswaEncodeWAV.js"></script>
+<script src="wa-components/gswaStereoPanner/gswaStereoPanner.js"></script>
+<script src="wa-components/gswaPeriodicWaves/gswaPeriodicWaves.js"></script>
+<script src="wa-components/gswaPeriodicWaves/gswaPeriodicWaves.list.js"></script>
+<script src="ui-components/gsui.js"></script>
+<script src="ui-components/gsuiDAW/gsuiDAW.html.js"></script>
+<script src="ui-components/gsuiDAW/gsuiDAW-popup-open.html.js"></script>
+<script src="ui-components/gsuiDAW/gsuiDAW-popup-about.html.js"></script>
+<script src="ui-components/gsuiDAW/gsuiDAW-popup-tempo.html.js"></script>
+<script src="ui-components/gsuiDAW/gsuiDAW-popup-export.html.js"></script>
+<script src="ui-components/gsuiDAW/gsuiDAW-popup-cookies.html.js"></script>
+<script src="ui-components/gsuiDAW/gsuiDAW-popup-settings.html.js"></script>
+<script src="ui-components/gsuiDAW/gsuiDAW-popup-shortcuts.html.js"></script>
+<script src="ui-components/gsuiDAW/gsuiDAW.js"></script>
+<script src="ui-components/gsuiDragshield/gsuiDragshield.js"></script>
+<script src="ui-components/gsuiEnvelopeGraph/gsuiEnvelopeGraph.js"></script>
+<script src="ui-components/gsuiEnvelope/gsuiEnvelope.html.js"></script>
+<script src="ui-components/gsuiEnvelope/gsuiEnvelope.js"></script>
+<script src="ui-components/gsuiLFO/gsuiLFO.html.js"></script>
+<script src="ui-components/gsuiLFO/gsuiLFO.js"></script>
+<script src="ui-components/gsuiClock/gsuiClock.html.js"></script>
+<script src="ui-components/gsuiClock/gsuiClock.js"></script>
+<script src="ui-components/gsuiChannel/gsuiChannel.html.js"></script>
+<script src="ui-components/gsuiChannel/gsuiChannel.js"></script>
+<script src="ui-components/gsuiChannels/gsuiChannels.html.js"></script>
+<script src="ui-components/gsuiChannels/gsuiChannels.js"></script>
+<script src="ui-components/gsuiCurves/gsuiCurves.html.js"></script>
+<script src="ui-components/gsuiCurves/gsuiCurves.js"></script>
+<script src="ui-components/gsuiEffects/gsuiEffects.html.js"></script>
+<script src="ui-components/gsuiEffects/gsuiEffects.js"></script>
+<script src="ui-components/gsuiFxFilter/gsuiFxFilter.html.js"></script>
+<script src="ui-components/gsuiFxFilter/gsuiFxFilter.js"></script>
+<script src="ui-components/gsuiReorder/gsuiReorder.js"></script>
+<script src="ui-components/gsuiReorder/gsuiReorder.listReorder.js"></script>
+<script src="ui-components/gsuiReorder/gsuiReorder.listComputeOrderChange.js"></script>
+<script src="ui-components/gsuiDragline/gsuiDragline.html.js"></script>
+<script src="ui-components/gsuiDragline/gsuiDragline.js"></script>
+<script src="ui-components/gsuiBeatlines/gsuiBeatlines.js"></script>
+<script src="ui-components/gsuiBlocksManager/gsuiBlocksManager.js"></script>
+<script src="ui-components/gsuiPatternroll/gsuiPatternroll.html.js"></script>
+<script src="ui-components/gsuiPatternroll/gsuiPatternroll.js"></script>
+<script src="ui-components/gsuiPianoroll/gsuiPianoroll.html.js"></script>
+<script src="ui-components/gsuiPianoroll/gsuiPianoroll.js"></script>
+<script src="ui-components/gsuiDrumrows/gsuiDrumrows.html.js"></script>
+<script src="ui-components/gsuiDrumrows/gsuiDrumrows.js"></script>
+<script src="ui-components/gsuiDrums/gsuiDrums.html.js"></script>
+<script src="ui-components/gsuiDrums/gsuiDrums.js"></script>
+<script src="ui-components/gsuiKeys/gsuiKeys.html.js"></script>
+<script src="ui-components/gsuiKeys/gsuiKeys.js"></script>
+<script src="ui-components/gsuiOscillator/gsuiOscillator.html.js"></script>
+<script src="ui-components/gsuiOscillator/gsuiOscillator.js"></script>
+<script src="ui-components/gsuiPeriodicWave/gsuiPeriodicWave.js"></script>
+<script src="ui-components/gsuiSynthesizer/gsuiSynthesizer.html.js"></script>
+<script src="ui-components/gsuiSynthesizer/gsuiSynthesizer.js"></script>
+<script src="ui-components/gsuiDotline/gsuiDotline.js"></script>
+<script src="ui-components/gsuiPanels/gsuiPanels.js"></script>
+<script src="ui-components/gsuiPopup/gsuiPopup.html.js"></script>
+<script src="ui-components/gsuiPopup/gsuiPopup.js"></script>
+<script src="ui-components/gsuiSlicer/gsuiSlicer.html.js"></script>
+<script src="ui-components/gsuiSlicer/gsuiSlicer.js"></script>
+<script src="ui-components/gsuiSlider/gsuiSlider.html.js"></script>
+<script src="ui-components/gsuiSlider/gsuiSlider.js"></script>
+<script src="ui-components/gsuiSliderGroup/gsuiSliderGroup.html.js"></script>
+<script src="ui-components/gsuiSliderGroup/gsuiSliderGroup.js"></script>
+<script src="ui-components/gsuiTimeline/gsuiTimeline.html.js"></script>
+<script src="ui-components/gsuiTimeline/gsuiTimeline.js"></script>
+<script src="ui-components/gsuiTimewindow/gsuiTimewindow.html.js"></script>
+<script src="ui-components/gsuiTimewindow/gsuiTimewindow.js"></script>
+<script src="ui-components/gsuiPatterns/gsuiPatterns-infoPopup.html.js"></script>
+<script src="ui-components/gsuiPatterns/gsuiPatterns-pattern.html.js"></script>
+<script src="ui-components/gsuiPatterns/gsuiPatterns-synth.html.js"></script>
+<script src="ui-components/gsuiPatterns/gsuiPatterns.html.js"></script>
+<script src="ui-components/gsuiPatterns/gsuiPatterns.js"></script>
+<script src="ui-components/gsuiTrack/gsuiTrack.html.js"></script>
+<script src="ui-components/gsuiTrack/gsuiTrack.js"></script>
+<script src="ui-components/gsuiTracklist/gsuiTracklist.js"></script>
+<script src="ui-components/gsuiAnalyser/gsuiAnalyser.js"></script>
+<script src="ui-components/gsuiSpectrum/gsuiSpectrum.js"></script>
+<script src="ui-components/gsuiSVGDefs/gsuiSVGDefs.js"></script>
+<script src="ui-components/gsuiWaveform/gsuiWaveform.js"></script>
+<script src="ui-components/gsuiWaveform/gsuiWaveform.draw.js"></script>
+<script src="ui-components/gsuiWaveforms/gsuiWaveforms.js"></script>
+<script src="ui-components/gsuiKeysforms/gsuiKeysforms.js"></script>
+<script src="ui-components/gsuiDrumsforms/gsuiDrumsforms.js"></script>
+<script src="ui-components/gsuiSlicesforms/gsuiSlicesforms.js"></script>
+<script src="ui-components/gsuiWindows/gsuiWindows.js"></script>
+<script src="ui-components/gsuiWindows/gsuiWindow.html.js"></script>
+<script src="ui-components/gsuiWindows/gsuiWindow.js"></script>
+<script src="src/html/windows/blocks.html.js"></script>
+<script src="src/html/windows/drums.html.js"></script>
+<script src="src/html/windows/effects.html.js"></script>
+<script src="src/html/windows/mixer.html.js"></script>
+<script src="src/html/windows/patternroll.html.js"></script>
+<script src="src/html/windows/pianoroll.html.js"></script>
+<script src="src/html/windows/slicer.html.js"></script>
+<script src="src/html/windows/synth.html.js"></script>
+<script src="src/html/popups/selectChan.html.js"></script>
+<script src="src/ui/loading.js"></script>
+<script src="src/ui/auth.js"></script>
+<script src="src/ui/drop.js"></script>
+<script src="src/ui/drums.js"></script>
+<script src="src/ui/title.js"></script>
+<script src="src/ui/synth.js"></script>
+<script src="src/ui/mixer.js"></script>
+<script src="src/ui/slicer.js"></script>
+<script src="src/ui/effects.js"></script>
+<script src="src/ui/windows.js"></script>
+<script src="src/ui/patterns.js"></script>
+<script src="src/ui/controls.js"></script>
+<script src="src/ui/keyboard.js"></script>
+<script src="src/ui/pianoroll.js"></script>
+<script src="src/ui/patternroll.js"></script>
+<script src="src/ui/compositions.js"></script>
+<script src="src/ui/compositionChanged.js"></script>
+<script src="src/run.js"></script>
+</body>
+</html>

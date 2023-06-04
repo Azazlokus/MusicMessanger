@@ -1,0 +1,134 @@
+gsui-popup {
+	display: flex;
+	position: fixed;
+	align-items: center;
+	justify-content: center;
+	inset: 0;
+	z-index: 2147483647;
+	color: #fff;
+	background-color: var( --gsuiPopup-overlay-bg );
+	backdrop-filter: blur( 10px );
+	transition: var( --gsuiPopup-dur );
+	transition-property: visibility, opacity;
+}
+gsui-popup:not( .gsuiPopup-show ) {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.gsuiPopup-window {
+	overflow: hidden;
+	min-width: var( --gsuiPopup-minWidth );
+	border-radius: var( --gsuiPopup-radius );
+	background-color: var( --gsuiPopup-bg );
+	outline: 0;
+	box-shadow: 0 0 50px #000;
+}
+.gsuiPopup-window:focus-within {
+	box-shadow:
+		0 0 1px 2px #69b,
+		0 0 50px #000;
+}
+.gsuiPopup-noCancel .gsuiPopup-cancel,
+.gsuiPopup-noText .gsuiPopup-inputText {
+	display: none;
+}
+
+.gsuiPopup-head {
+	padding: var( --gsuiPopup-padding );
+	font-size: var( --gsuiPopup-header-fontSize );
+	background-color: var( --gsuiPopup-header-bg );
+}
+.gsuiPopup-body {
+	font-size: var( --gsuiPopup-body-fontSize );
+	padding: var( --gsuiPopup-padding );
+}
+.gsuiPopup-content:not( :empty ) + .gsuiPopup-message,
+.gsuiPopup-content:not( :empty ) ~ input {
+	display: none;
+}
+
+.gsuiPopup-inputText,
+.gsuiPopup-btns input {
+	padding: .6em 1.25em;
+	border: 0;
+	border-radius: 4px;
+}
+.gsuiPopup-window input,
+.gsuiPopup-window select {
+	outline: 0;
+}
+.gsuiPopup-window input:focus,
+.gsuiPopup-window select:focus {
+	box-shadow: 0 0 1px 2px #69b;
+}
+.gsuiPopup-inputText {
+	box-sizing: border-box;
+	padding: 8px;
+	width: 100%;
+	font-size: 14px;
+	height: 32px;
+}
+.gsuiPopup-btns {
+	margin-top: var( --gsuiPopup-padding );
+	text-align: center;
+}
+.gsuiPopup-btns input {
+	color: #fff;
+	font-weight: bold;
+	font-family: inherit;
+	background-color: var( --gsuiPopup-btn-bg );
+	cursor: pointer;
+}
+.gsuiPopup-btns input + input {
+	margin-left: var( --gsuiPopup-padding );
+}
+.gsuiPopup-btns .gsuiPopup-ok {
+	background-color: var( --gsuiPopup-btnOk-bg );
+}
+
+/* .......................................................................... */
+.gsuiPopup-content a {
+	color: inherit;
+	text-decoration: none;
+}
+.gsuiPopup-content a:hover {
+	text-decoration: underline;
+}
+.gsuiPopup-content fieldset {
+	display: flex;
+	flex-direction: column;
+	border: 2px solid #444;
+	border-radius: 4px;
+	margin-bottom: 10px;
+}
+.gsuiPopup-content legend {
+	font-size: 12px;
+	opacity: .5;
+}
+
+/* .......................................................................... */
+.gsuiPopup-row {
+	display: flex;
+	align-items: center;
+	font-size: 14px;
+	padding: 4px;
+	gap: 6px;
+}
+.gsuiPopup-row + .gsuiPopup-row {
+	margin-top: 6px;
+}
+.gsuiPopup-row-title {
+	flex: 1;
+	font-size: 13px;
+}
+.gsuiPopup-row-values,
+.gsuiPopup-row-values label {
+	display: flex;
+	align-items: center;
+	font-family: var( --gsui-font-monospace );
+	gap: .6ch;
+}
+.gsuiPopup-row-values label {
+	cursor: pointer;
+}

@@ -1,0 +1,28 @@
+"use strict";
+
+GSUI.setTemplate( "gsui-window", () => [
+	GSUI.createElement( "div", { class: "gsuiWindow-handlers" },
+		GSUI.createElement( "div", { class: "gsuiWindow-handler", "data-dir": "n" } ),
+		GSUI.createElement( "div", { class: "gsuiWindow-handler", "data-dir": "e" } ),
+		GSUI.createElement( "div", { class: "gsuiWindow-handler", "data-dir": "s" } ),
+		GSUI.createElement( "div", { class: "gsuiWindow-handler", "data-dir": "w" } ),
+		GSUI.createElement( "div", { class: "gsuiWindow-handler", "data-dir": "nw" } ),
+		GSUI.createElement( "div", { class: "gsuiWindow-handler", "data-dir": "ne" } ),
+		GSUI.createElement( "div", { class: "gsuiWindow-handler", "data-dir": "sw" } ),
+		GSUI.createElement( "div", { class: "gsuiWindow-handler", "data-dir": "se" } ),
+	),
+	GSUI.createElement( "div", { class: "gsuiWindow-wrap" },
+		GSUI.createElement( "div", { class: "gsuiWindow-head" },
+			GSUI.createElement( "button", { class: "gsuiWindow-icon gsuiIcon", tabindex: -1 } ),
+			GSUI.createElement( "div", { class: "gsuiWindow-title" } ),
+			GSUI.createElement( "div", { class: "gsuiWindow-headContent" } ),
+			GSUI.createElement( "div", { class: "gsuiWindow-headBtns" },
+				GSUI.createElement( "button", { class: "gsuiWindow-headBtn gsuiIcon", "data-icon": "minimize", title: "Минимизировать" } ),
+				GSUI.createElement( "button", { class: "gsuiWindow-headBtn gsuiIcon", "data-icon": "restore", title: "Восстановить" } ),
+				GSUI.createElement( "button", { class: "gsuiWindow-headBtn gsuiIcon", "data-icon": "maximize", title: "Максимизировать" } ),
+				GSUI.createElement( "button", { class: "gsuiWindow-headBtn gsuiIcon", "data-icon": "close", title: "Закрыть" } ),
+			),
+		),
+		GSUI.createElement( "div", { class: "gsuiWindow-content" } ),
+	),
+] );

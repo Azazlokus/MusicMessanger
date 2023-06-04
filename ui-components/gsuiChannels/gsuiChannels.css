@@ -1,0 +1,64 @@
+gsui-channels {
+	display: flex;
+	height: 100%;
+	position: relative;
+	color: var( --gsuiChannels-color );
+	background-color: var( --gsuiChannels-bg );
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+/* .......................................................................... */
+.gsuiChannels-panMain {
+	position: absolute;
+	inset: 0 auto 0 0;
+}
+.gsuiChannels-panChannels {
+	position: absolute;
+	overflow: scroll;
+	inset: 0 0 0 calc( 52px + 6px );
+	display: grid;
+	grid-auto-flow: column;
+	grid-auto-columns: min-content;
+	scrollbar-width: none;
+}
+.gsuiChannels-panChannels::-webkit-scrollbar {
+	display: none;
+}
+.gsuiChannels-panChannels::after {
+	order: 2147483647;
+	content: ".";
+	opacity: 0;
+	margin-left: 16px;
+}
+.gsuiChannels-panChannels gsui-channel:nth-child( odd ) {
+	--gsuiChannel-bg: var( --gsuiChannel-bg2 );
+}
+
+/* .......................................................................... */
+.gsuiChannels-addChan {
+	position: relative;
+	order: 2147483646;
+	width: 52px;
+	border: 0;
+	padding: 0;
+	outline: 0;
+	font-size: 18px;
+	color: inherit;
+	cursor: pointer;
+	border-radius: 2px;
+	background: none;
+	opacity: .4;
+	transition: .2s opacity;
+}
+.gsuiChannels-addChan:focus,
+.gsuiChannels-addChan:hover {
+	opacity: .6;
+}
+.gsuiChannels-addChan::before {
+	content: "";
+	inset: 6px;
+	opacity: .4;
+	border: 2px dashed;
+	position: absolute;
+}

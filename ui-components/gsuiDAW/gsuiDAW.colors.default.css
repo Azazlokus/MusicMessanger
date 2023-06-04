@@ -1,0 +1,30 @@
+gsui-daw {
+	--gsuiDAW-bg: #474747;
+	--gsuiDAW-content-bg: #6a43b6;
+	--gsuiDAW-color: #ebcbf4;
+	--gsuiDAW-playPauseStop-bg: #6a43b6;
+	--gsuiDAW-save-bg: #ba5d5d;
+	--gsuiDAW-currentTime-bg: #0003;
+	--gsuiDAW-currentTime-lineColor: #6a43b6;
+	--gsuiDAW-currentTime-lineBgColor: #6a43b6;
+	--gsuiDAW-btn-bg: #ffffff1a;
+	--gsuiDAW-winBtn-bg: #222;
+	--gsuiDAW-winBtn-open-bg: #ff9;
+	--gsuiDAW-export-color: #ff9;
+	--gsuiDAW-about-color: #ff9;
+	--gsuiDAW-cookies-color: #ff9;
+	--gsuiDAW-dropdown-shadow: 20px 10px #6a43b8;
+	--gsuiDAW-history-bg: #6a43b6;
+	--gsuiDAW-history-action-bg: #4d4550;
+	--gsuiDAW-history-action-color: #ddd;
+	--gsuiDAW-history-action-light-bg: rgb(143, 102, 170);
+	--gsuiDAW-history-action-lightoff-bg: #6a43b6;
+	--gsuiDAW-cmps-color: rgb(195, 153, 221);
+	--gsuiDAW-cmps-btn-bg: #322a3a;
+	--gsuiDAW-cmps-btn-newCmp-color: rgb(167, 153, 255);
+	--gsuiDAW-cmp-cloud-bg: #b650e4;
+	--gsuiDAW-cmp-local-bg: #9f59f2;
+	--gsuiDAW-cmp-text: #fff;
+	--gsuiDAW-cmp-height: 42px;
+	--gsuiDAW-cmp-text-size: 18px;
+}
