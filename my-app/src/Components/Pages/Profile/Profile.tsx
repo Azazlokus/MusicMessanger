@@ -3,7 +3,7 @@ import Header from "../../UI/Header/Header";
 import './Profile.css';
 import {useAuth} from "../../Provider/useAuth";
 import {Navigate} from "react-router-dom";
-import {doc, updateDoc, getDoc, collection, addDoc} from 'firebase/firestore'
+import {doc, updateDoc,getDocs, getDoc, collection, addDoc} from 'firebase/firestore'
 import {IUser} from "../../../Type";
 import PostForm from "../../UI/Posts/PostForm";
 import PostList from "../../UI/Posts/PostList";
@@ -20,14 +20,14 @@ const Profile = () => {
     const currentUser = users.find((usr) => usr._id === userId);
     const userProfile = currentUser && currentUser._id !== user?._id ? currentUser : user;
 
-    const handleFollow = async () => {
+    const handleFollow = async (message: any) => {
         if (user !== null && userId) {
             // Проверяем, следит ли пользователь уже за выбранным пользователем
             const isFollowing = user.follow.includes(userId);
 
             if (isFollowing) {
                 // Если пользователь уже следит, удаляем его из массива follow
-                const updatedFollow = user.follow.filter(id => id !== userId);
+                const updatedFollow = user.follow.filter((id) => id !== userId);
                 const userRef = doc(base, 'users', user._id);
                 await updateDoc(userRef, {
                     follow: updatedFollow,
@@ -39,12 +39,46 @@ const Profile = () => {
                     follow: [...user.follow, userId],
                 });
 
-                // Создаем коллекцию чата
-                const chatCollectionRef = collection(base, 'chats');
-                const newChatDoc = await addDoc(chatCollectionRef, {
-                    chatId: [user._id, userId],
-                });
-                console.log('Создана новая коллекция чата с ID:', newChatDoc.id);
+                // Проверяем, существует ли уже чат с выбранным пользователем
+                const chatRef = collection(base, 'chats');
+                const chatSnapshot = await getDocs(chatRef);
+                let existingChatId = '';
+
+                for (const chatDoc of chatSnapshot.docs) {
+                    const chatData = chatDoc.data();
+                    if (chatData && chatData.chatId.includes(user._id) && chatData.chatId.includes(userId)) {
+                        existingChatId = chatDoc.id;
+                        break;
+                    }
+                }
+
+                if (existingChatId !== '') {
+                    // Если чат уже существует, добавляем новое сообщение в существующий чат
+                    const messagesRef = doc(base, 'chats', existingChatId);
+                    const messagesSnapshot = await getDoc(messagesRef);
+                    const messagesData = messagesSnapshot.data();
+
+                    if (!messagesData || !messagesData.messages) {
+                        await updateDoc(messagesRef, {
+                            messages: [{ message, user: { _id: user._id, name: user.name, avatar: user.avatar } }],
+                        });
+                    } else {
+                        await updateDoc(messagesRef, {
+                            messages: [
+                                ...messagesData.messages,
+                                { message, user: { _id: user._id, name: user.name, avatar: user.avatar } },
+                            ],
+                        });
+                    }
+                } else {
+                    // Если чат не существует, создаем новую коллекцию чата
+                    const chatCollectionRef = collection(base, 'chats');
+                    const newChatDoc = await addDoc(chatCollectionRef, {
+                        chatId: [user._id, userId],
+                        messages: [{ message, user: { _id: user._id, name: user.name, avatar: user.avatar } }],
+                    });
+                    console.log('Создана новая коллекция чата с ID:', newChatDoc.id);
+                }
             }
         }
     };
@@ -130,7 +164,7 @@ const Profile = () => {
                         {userId !== '/profile' ? (
                             <div className={'add__btn'}>
                                 <button
-                                    onClick={handleFollow}
+                                    onClick={() => handleFollow('Привет, я добавил тебя в друзья!')}
                                     className={'btn__to_add'}
                                 >
                                     {userId && user?.follow.includes(userId) ? 'Unfollow' : 'Follow'}

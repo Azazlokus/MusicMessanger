@@ -1,5 +1,5 @@
 import React, { FC, MouseEvent } from 'react';
-import { addDoc, collection, doc, getDoc, onSnapshot, getDocs, updateDoc } from 'firebase/firestore';
+import { addDoc, collection, doc, getDoc, onSnapshot, getDocs, updateDoc, query, where } from 'firebase/firestore';
 import './Chat.css';
 import { useAuth } from '../../Provider/useAuth';
 import { IMessage } from '../../../Type';
@@ -12,13 +12,17 @@ const Message: FC = () => {
     const userId = window.location.pathname.split('/id:').pop();
 
     React.useEffect(() => {
+        if (!userId || !user?._id) {
+            return;
+        }
+
         const chatRef = collection(base, 'chats');
         const unsubscribe = onSnapshot(chatRef, async (querySnapshot) => {
             const arr: IMessage[] = [];
 
             for (const chatDoc of querySnapshot.docs) {
                 const chatData = chatDoc.data();
-                if (chatData && chatData.chatId.includes(userId)) {
+                if (chatData && chatData.chatId.includes(user._id) && chatData.chatId.includes(userId)) {
                     const messagesRef = doc(base, 'chats', chatDoc.id);
                     const messagesSnapshot = await getDoc(messagesRef);
                     const messagesData = messagesSnapshot.data();
@@ -35,7 +39,8 @@ const Message: FC = () => {
         return () => {
             unsubscribe();
         };
-    }, [base, userId]);
+    }, [base, userId, user?._id]);
+
 
     const addMessage = async (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
@@ -55,13 +60,25 @@ const Message: FC = () => {
 
                     if (!messagesData || !messagesData.messages) {
                         await updateDoc(messagesRef, {
-                            messages: [{ message, user: user ? { _id: user._id, name: user.name, avatar: user.avatar } : null }],
+                            messages: [
+                                {
+                                    message,
+                                    user: user
+                                        ? { _id: user._id, name: user.name, avatar: user.avatar }
+                                        : null,
+                                },
+                            ],
                         });
                     } else {
                         await updateDoc(messagesRef, {
                             messages: [
                                 ...messagesData.messages,
-                                { message, user: user ? { _id: user._id, name: user.name, avatar: user.avatar } : null },
+                                {
+                                    message,
+                                    user: user
+                                        ? { _id: user._id, name: user.name, avatar: user.avatar }
+                                        : null,
+                                },
                             ],
                         });
                     }
@@ -75,7 +92,7 @@ const Message: FC = () => {
 
     return (
         <>
-            {userId === '/chat' ? (
+            {userId === '/chat' || !userId || !user?._id ? (
                 <div className="none__chat_container">
                     <img className="none__chat_bg" src={NoneChatBg} alt="None Chat Background" />
                 </div>
