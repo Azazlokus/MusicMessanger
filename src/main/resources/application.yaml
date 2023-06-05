@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/tasklist?currentSchema=tasklist
+    url: jdbc:postgresql://localhost:5432/messanger?currentSchema=messanger
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
@@ -12,7 +12,7 @@ spring:
   liquibase:
     change-log: classpath:liquibase/db.changelog.yaml
     enabled: true
-    default-schema: tasklist
+    default-schema: messanger
 mybatis:
   mapper-locations: classpath:mybatis/mapper/*.xml
 security:
