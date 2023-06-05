@@ -3,7 +3,7 @@ import Header from "../../UI/Header/Header";
 import './Profile.css';
 import {useAuth} from "../../Provider/useAuth";
 import {Navigate} from "react-router-dom";
-import {doc, updateDoc, getDoc} from 'firebase/firestore'
+import {doc, updateDoc, getDoc, collection, addDoc} from 'firebase/firestore'
 import {IUser} from "../../../Type";
 import PostForm from "../../UI/Posts/PostForm";
 import PostList from "../../UI/Posts/PostList";
@@ -38,6 +38,13 @@ const Profile = () => {
                 await updateDoc(userRef, {
                     follow: [...user.follow, userId],
                 });
+
+                // Создаем коллекцию чата
+                const chatCollectionRef = collection(base, 'chats');
+                const newChatDoc = await addDoc(chatCollectionRef, {
+                    chatId: [user._id, userId],
+                });
+                console.log('Создана новая коллекция чата с ID:', newChatDoc.id);
             }
         }
     };

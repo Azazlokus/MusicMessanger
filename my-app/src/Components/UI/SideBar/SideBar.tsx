@@ -90,7 +90,7 @@ const SideBar: FC = () => {
                     className={'sidebar__users_input'}/>
                 <ul className={'sidebar__users'}>
                     {searchResults.length > 0 ? (
-                        searchResults.slice(0, 6).map(usr => (
+                        searchResults.slice(0, 5).map(usr => (
                             <Link className={'link__online'} key={usr._id} to={`/profile/id:${usr._id}`}>
                                 <li className={'sidebar__follow_item'}>
                                     <img src={usr.avatar} alt={'Avatar'} className={'sidebar__follow_avatar'}/>
@@ -99,7 +99,7 @@ const SideBar: FC = () => {
                             </Link>
                         ))
                     ) : (
-                        users.slice(0, 6).map(usr => (
+                        users.slice(0, 5).map(usr => (
                             <Link className={'link__online'} key={usr._id} to={`/profile/id:${usr._id}`}>
                                 <li className={'sidebar__follow_item'}>
                                     <img src={usr.avatar} alt={'Avatar'} className={'sidebar__follow_avatar'}/>
