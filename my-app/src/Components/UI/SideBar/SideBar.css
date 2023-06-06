@@ -67,3 +67,8 @@
 .link__online{
     text-decoration: none;
 }
+.sidebar__follow_avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}

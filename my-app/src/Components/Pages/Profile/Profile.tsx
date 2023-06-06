@@ -1,26 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from "../../UI/Header/Header";
 import './Profile.css';
-import {useAuth} from "../../Provider/useAuth";
-import {Navigate} from "react-router-dom";
-import {doc, updateDoc,getDocs, getDoc, collection, addDoc} from 'firebase/firestore'
-import {IUser} from "../../../Type";
+import { useAuth } from "../../Provider/useAuth";
+import { Navigate } from "react-router-dom";
+import {doc, updateDoc, getDoc, collection, addDoc, getDocs} from 'firebase/firestore';
+import { IUser } from "../../../Type";
 import PostForm from "../../UI/Posts/PostForm";
 import PostList from "../../UI/Posts/PostList";
 import MusicPlayer from "../../UI/MusicPlayer/MusicPlayer";
 
-
-
-
 const Profile = () => {
-    const [postVisiable, setPostVisiable] = React.useState(false)
-    const [musicVisiable, setMusicVisiable] = React.useState(false)
+    const [postVisible, setPostVisible] = useState(false);
+    const [musicVisible, setMusicVisible] = useState(false);
+    const [editMode, setEditMode] = useState(false);
+    const [newName, setNewName] = useState('');
+    const [newAvatar, setNewAvatar] = useState('');
 
-
-    const {user, users, base, setUser} = useAuth()
+    const { user, users, base, setUser } = useAuth();
     const userId = window.location.pathname.split('/id:').pop();
     const currentUser = users.find((usr) => usr._id === userId);
     const userProfile = currentUser && currentUser._id !== user?._id ? currentUser : user;
+
 
     const handleFollow = async (message: any) => {
         if (user !== null && userId) {
@@ -100,6 +100,46 @@ const Profile = () => {
         updateUser();
     }, []);
 
+    const handleEdit = () => {
+        if (editMode) {
+            // Сохранить изменения в базе данных
+            if (user && newName && newAvatar) {
+                const userRef = doc(base, 'users', user._id);
+                const updatedUser = {
+                    ...user,
+                    name: newName,
+                    avatar: newAvatar,
+                };
+                updateDoc(userRef, updatedUser)
+                    .then(() => {
+                        setUser(updatedUser);
+                        setEditMode(false);
+                    })
+                    .catch((error) => {
+                        console.error('Error updating user:', error);
+                    });
+            } else {
+                setEditMode(false);
+            }
+        } else {
+            // Включить режим редактирования
+            setNewName(user?.name || '');
+            setNewAvatar(user?.avatar || '');
+            setEditMode(true);
+        }
+    };
+
+    const handleCancelEdit = () => {
+        setEditMode(false);
+    };
+
+    const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setNewName(event.target.value);
+    };
+
+    const handleAvatarChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setNewAvatar(event.target.value);
+    };
 
     if (!userProfile) {
         return <Navigate to="/news" replace />;
@@ -107,73 +147,114 @@ const Profile = () => {
 
     const createMusic = () => {
         window.location.href = "http://kittydaw.byethost7.com/";
-    }
-    function postHandler() {
-        if(postVisiable){
-           setPostVisiable(false)
-        }
-        else{
-            setPostVisiable(true)
+    };
 
-            setMusicVisiable(false)
+    const postHandler = () => {
+        if (postVisible) {
+            setPostVisible(false);
+        } else {
+            setPostVisible(true);
+            setMusicVisible(false);
         }
-    }
+    };
 
-
-    function musicHandler() {
-        if(musicVisiable){
-            setMusicVisiable(false)
+    const musicHandler = () => {
+        if (musicVisible) {
+            setMusicVisible(false);
+        } else {
+            setMusicVisible(true);
+            setPostVisible(false);
         }
-        else{
-            setMusicVisiable(true)
-            setPostVisiable(false)
-
-        }
-    }
+    };
     return (
         <div className={'profile__container'}>
-            <Header/>
+            <Header />
             <div className={'profile__content'}>
                 <div className={'profile__theme'}></div>
 
-                {user?._id !== userId ? (
-                    <div className={'profile__user'}>
-                        <div className={'profile__user_img'}>
-                            <img src={userProfile.avatar} alt={'Avatar'} className={'profile__user_avatar'} />
-                        </div>
-                        <div className={'profile__user_info'}>
-                            <h1 className={'profile__user_name'}>{userProfile.name}</h1>
-
-                            <div className={'profile__user_friends'}>
-                                <div className={'profile__user_follow follow'}>
-                                    <h2 className={'profile__follow_title'}>following</h2>
-                                    <p className={'profile__follow_count'}>3000</p>
-                                </div>
-
-                                <div className={'profile__user_followers followers'}>
-                                    <h2 className={'profile__followers_title'}>followers</h2>
-                                    <p className={'profile__followers_count'}>{userProfile.follow.length}</p>
-                                </div>
-                            </div>
-                        </div>
-                        {userId !== '/profile' ? (
-                            <div className={'add__btn'}>
-                                <button
-                                    onClick={() => handleFollow('Привет, я добавил тебя в друзья!')}
-                                    className={'btn__to_add'}
-                                >
-                                    {userId && user?.follow.includes(userId) ? 'Unfollow' : 'Follow'}
-                                </button>
-                            </div>
-                        ): (
-                            <div className={'edit__btn'}>
-                                <button className={'btn__to_edit'}>Edit</button>
-                            </div>
+                <div className={'profile__user'}>
+                    <div className={'profile__user_img'}>
+                        {editMode ? (
+                            <input
+                                type="text"
+                                value={newAvatar}
+                                onChange={handleAvatarChange}
+                                placeholder="Enter your avatar URL"
+                                className={'profile__user_avatar'}
+                            />
+                        ) : (
+                            <img
+                                src={userProfile.avatar}
+                                alt={'Avatar'}
+                                className={'profile__user_avatar'}
+                            />
                         )}
                     </div>
-                ): (
-                    <Navigate to={'/profile'}/>
-                )}
+                    <div className={'profile__user_info'}>
+                        {editMode ? (
+                            <React.Fragment>
+                                <input
+                                    type="text"
+                                    value={newName}
+                                    onChange={handleNameChange}
+                                    placeholder="Enter your name"
+                                />
+                            </React.Fragment>
+                        ) : (
+                            <React.Fragment>
+                                <h1 className={'profile__user_name'}>{userProfile.name}</h1>
+                            </React.Fragment>
+                        )}
+
+                        <div className={'profile__user_friends'}>
+                            <div className={'profile__user_follow follow'}>
+                                <h2 className={'profile__follow_title'}>following</h2>
+                                <p className={'profile__follow_count'}>3000</p>
+                            </div>
+
+                            <div className={'profile__user_followers followers'}>
+                                <h2 className={'profile__followers_title'}>followers</h2>
+                                <p className={'profile__followers_count'}>{userProfile.follow.length}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {userId !== '/profile' ? (
+                        <div className={'add__btn'}>
+                            <button
+                                onClick={() => handleFollow('Привет, я добавил тебя в друзья!')}
+                                className={'btn__to_add'}
+                            >
+                                {userId && user?.follow.includes(userId) ? 'Unfollow' : 'Follow'}
+                            </button>
+                        </div>
+                    ) : (
+                        <div className={'edit__btn'}>
+                            {editMode ? (
+                                <React.Fragment>
+                                    <button
+                                        className={'btn__to_edit'}
+                                        onClick={handleEdit}
+                                    >
+                                        Save
+                                    </button>
+                                    <button
+                                        className={'btn__to_cancel'}
+                                        onClick={handleCancelEdit}
+                                    >
+                                        Cancel
+                                    </button>
+                                </React.Fragment>
+                            ) : (
+                                <button
+                                    className={'btn__to_edit'}
+                                    onClick={handleEdit}
+                                >
+                                    Edit
+                                </button>
+                            )}
+                        </div>
+                    )}
+                </div>
 
                 <ul className={'profile__nav'}>
                     <li onClick={postHandler} className={'profile__nav_item'}>
@@ -184,27 +265,21 @@ const Profile = () => {
                     </li>
                 </ul>
 
-                {
-                    postVisiable && (
-                        <div className={'profile__post_container'}>
-                            <PostForm/>
-                            <PostList/>
-                        </div>
-                    )
-                }
-                {
+                {postVisible && (
+                    <div className={'profile__post_container'}>
+                        <PostForm />
+                        <PostList />
+                    </div>
+                )}
 
-                }
-                {
-                    musicVisiable && (
-                        <div className={'music'}>
-                            <div className="music__btn">
-                                <button onClick={createMusic} className={'music__btn_create'}>Create</button>
-                            </div>
-                            <MusicPlayer/>
+                {musicVisible && (
+                    <div className={'music'}>
+                        <div className="music__btn">
+                            <button onClick={createMusic} className={'music__btn_create'}>Create</button>
                         </div>
-                    )
-                }
+                        <MusicPlayer />
+                    </div>
+                )}
             </div>
         </div>
     );

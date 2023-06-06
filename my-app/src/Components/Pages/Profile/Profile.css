@@ -38,6 +38,7 @@
 .profile__user_avatar{
     width: 223px;
     height: 210px;
+    border-radius: 100%;
 }
 .profile__user_info{
     display: flex;

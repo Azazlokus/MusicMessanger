@@ -35,6 +35,7 @@
 .chat__sidebar_avatar{
     width: 48px;
     height: 48px;
+    border-radius: 100%;
 }
 .chat__user_info{
 
