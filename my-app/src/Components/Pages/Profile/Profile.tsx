@@ -7,13 +7,15 @@ import {doc, updateDoc,getDocs, getDoc, collection, addDoc} from 'firebase/fires
 import {IUser} from "../../../Type";
 import PostForm from "../../UI/Posts/PostForm";
 import PostList from "../../UI/Posts/PostList";
+import MusicPlayer from "../../UI/MusicPlayer/MusicPlayer";
+
 
 
 
 const Profile = () => {
     const [postVisiable, setPostVisiable] = React.useState(false)
     const [musicVisiable, setMusicVisiable] = React.useState(false)
-    const [photoVisiable, setPhotoVisiable] = React.useState(false)
+
 
     const {user, users, base, setUser} = useAuth()
     const userId = window.location.pathname.split('/id:').pop();
@@ -103,27 +105,20 @@ const Profile = () => {
         return <Navigate to="/news" replace />;
     }
 
+    const createMusic = () => {
+        window.location.href = "http://kittydaw.byethost7.com/";
+    }
     function postHandler() {
         if(postVisiable){
            setPostVisiable(false)
         }
         else{
             setPostVisiable(true)
-            setPhotoVisiable(false)
+
             setMusicVisiable(false)
         }
     }
 
-    function photoHandler() {
-        if(photoVisiable){
-            setPhotoVisiable(false)
-        }
-        else{
-            setPhotoVisiable(true)
-            setPostVisiable(false)
-            setMusicVisiable(false)
-        }
-    }
 
     function musicHandler() {
         if(musicVisiable){
@@ -132,7 +127,7 @@ const Profile = () => {
         else{
             setMusicVisiable(true)
             setPostVisiable(false)
-            setPhotoVisiable(false)
+
         }
     }
     return (
@@ -184,9 +179,6 @@ const Profile = () => {
                     <li onClick={postHandler} className={'profile__nav_item'}>
                         Post
                     </li>
-                    <li onClick={photoHandler} className={'profile__nav_item'}>
-                        Photo
-                    </li>
                     <li onClick={musicHandler} className={'profile__nav_item'}>
                         Music
                     </li>
@@ -201,16 +193,15 @@ const Profile = () => {
                     )
                 }
                 {
-                    photoVisiable && (
-                        <div>
-                            Photo
-                        </div>
-                    )
+
                 }
                 {
                     musicVisiable && (
-                        <div>
-                            Music
+                        <div className={'music'}>
+                            <div className="music__btn">
+                                <button onClick={createMusic} className={'music__btn_create'}>Create</button>
+                            </div>
+                            <MusicPlayer/>
                         </div>
                     )
                 }

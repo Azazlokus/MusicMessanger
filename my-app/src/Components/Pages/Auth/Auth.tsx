@@ -52,7 +52,9 @@ const Auth = () => {
                         name: userData.name,
                         _id: res.user.uid,
                         avatar: ava,
-                        follow: []
+                        follow: [],
+                        music: [],
+                        photo: []
                     });
 
                 } catch (e) {

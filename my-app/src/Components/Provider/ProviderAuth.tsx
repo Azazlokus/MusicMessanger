@@ -31,7 +31,9 @@ export const AuthProvider: FC<AuthProv> = ({children}) => {
                     _id: authUser.uid,
                     avatar: ava,
                     name: authUser.displayName || '',
-                    follow: []
+                    follow: [],
+                    music: [],
+                    photo: []
                 };
 
                 setUser(newUser);

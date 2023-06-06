@@ -6,6 +6,8 @@ export interface IUser {
     avatar: string
     name: string
     follow: string[]
+    music: any[]
+    photo: any[]
 }
 
 export interface IPost {

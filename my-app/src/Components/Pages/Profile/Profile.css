@@ -108,3 +108,20 @@
     border-radius: 10px;
     background-color: #FFFFFF;
 }
+
+/*Styles for music*/
+.music{
+    padding-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.music__btn{
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    column-gap: 200px;
+    background-color: white;
+    height: 50px;
+    align-items: center;
+}

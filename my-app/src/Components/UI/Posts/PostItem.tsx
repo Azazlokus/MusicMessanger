@@ -34,7 +34,7 @@ const PostItem = () => {
             <footer className={'postitem__footer'}>
                 <div className={'postitem__footer_likes'}>
                     <Icon onClick={like} className={'postitem__footer_img'} icon="icon-park-solid:like" color="red"/>
-                    <h2 className={'postitem__footer_likevalue'}>{likeValue !== 0 ? likeValue : ''}</h2>
+                    <h2 className={'postitem__footer_likevalue'}>{likeValue}</h2>
                 </div>
                 <img className={'postitem__footer_img'} src={comments} alt={'Comments'}/>
                 <img className={'postitem__footer_img'} src={repost} alt={'Repost'}/>
